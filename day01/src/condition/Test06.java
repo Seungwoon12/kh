@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class Test06 {
 	public static void main(String[] args) {	
 		Scanner sc = new Scanner(System.in);
-		System.out.print("ÀÎ¿ø ¼ö : ");
+		System.out.print("ì¸ì›ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		int people = sc.nextInt();
-		System.out.print("°¡´Â ¿ù : ");
+		System.out.print("ê¸°ê°„ì„ ì¼ë‹¨ìœ„ë¡œ ì…ë ¥í•˜ì„¸ìš”: ");
 		int month = sc.nextInt();
-		System.out.print("¿©Çà ÀÏ¼ö : ");
+		System.out.print("ì—¬í–‰ê°€ì‹¤ ì›”ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		int day = sc.nextInt();
 		
 		int rate;
@@ -31,9 +31,9 @@ public class Test06 {
 		int discount = total*rate/100;
 		int result = total-discount;
 		
-		System.out.println("ÇÒÀÎ Àü : "+total+"¿ø");
-		System.out.println("ÇÒÀÎ : "+discount+"¿ø");
-		System.out.println("ÇÒÀÎ ÈÄ : "+result+"¿ø");
+		System.out.println("í• ì¸ ì „ : "+total+"ì›");
+		System.out.println("í• ì¸ê¸ˆì•¡: "+discount+"ì›");
+		System.out.println("í• ì¸ í›„ : "+result+"ì›");
 		
 				
 	
@@ -61,32 +61,32 @@ public class Test06 {
 		
 		
 //		Scanner sc = new Scanner(System.in);
-//		System.out.print("ÀÎ¿ø¼ö(¸í) : ");
+//		System.out.print("ï¿½Î¿ï¿½ï¿½ï¿½(ï¿½ï¿½) : ");
 //		int num = sc.nextInt();
-//		System.out.print("¿©Çà±â°£(¿ù) : ");
+//		System.out.print("ï¿½ï¿½ï¿½ï¿½â°£(ï¿½ï¿½) : ");
 //		int month = sc.nextInt();
-//		System.out.print("¿©ÇàÀÏ¼ö(ÀÏ) : ");
+//		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½(ï¿½ï¿½) : ");
 //		int day = sc.nextInt();
 //		switch(month) {
 //		case 3: case 4: case 5:
-//			System.out.println("ÇÒÀÎ¹Ş±â Àü ±İ¾× : "+num*10*day+"¸¸¿ø");
-//			System.out.println("ÇÒÀÎ ±İ¾× : "+num*10*day*0.3+"¸¸¿ø");
-//			System.out.println("ÇÒÀÎ¹ŞÀº ÈÄ ±İ¾× : "+(num*10*day-num*10*day*0.3)+"¸¸¿ø");
+//			System.out.println("ï¿½ï¿½ï¿½Î¹Ş±ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day+"ï¿½ï¿½ï¿½ï¿½");
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day*0.3+"ï¿½ï¿½ï¿½ï¿½");
+//			System.out.println("ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : "+(num*10*day-num*10*day*0.3)+"ï¿½ï¿½ï¿½ï¿½");
 //			break;
 //		case 6: case 7: case 8:
-//			System.out.println("ÇÒÀÎ¹Ş±â Àü ±İ¾× : "+num*10*day+"¸¸¿ø");
-//			System.out.println("ÇÒÀÎ ±İ¾× : "+num*10*day*0+"¿ø");
-//			System.out.println("ÇÒÀÎ¹ŞÀº ÈÄ ±İ¾× : "+num*10*day+"¸¸¿ø");
+//			System.out.println("ï¿½ï¿½ï¿½Î¹Ş±ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day+"ï¿½ï¿½ï¿½ï¿½");
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day*0+"ï¿½ï¿½");
+//			System.out.println("ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day+"ï¿½ï¿½ï¿½ï¿½");
 //			break;
 //		case 9: case 10: case 11:
-//			System.out.println("ÇÒÀÎ¹Ş±â Àü ±İ¾× : "+num*10*day+"¸¸¿ø");
-//			System.out.println("ÇÒÀÎ ±İ¾× : "+num*10*day*0.15+"¸¸¿ø");
-//			System.out.println("ÇÒÀÎ¹ŞÀº ÈÄ ±İ¾× : "+(num*10*day-num*10*day*0.15)+"¸¸¿ø");
+//			System.out.println("ï¿½ï¿½ï¿½Î¹Ş±ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day+"ï¿½ï¿½ï¿½ï¿½");
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day*0.15+"ï¿½ï¿½ï¿½ï¿½");
+//			System.out.println("ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : "+(num*10*day-num*10*day*0.15)+"ï¿½ï¿½ï¿½ï¿½");
 //			break;
 //		case 12: case 1: case 2:
-//			System.out.println("ÇÒÀÎ¹Ş±â Àü ±İ¾× : "+num*10*day+"¸¸¿ø");
-//			System.out.println("ÇÒÀÎ ±İ¾× : "+num*10*day*0.05+"¸¸¿ø");
-//			System.out.println("ÇÒÀÎ¹ŞÀº ÈÄ ±İ¾×: "+(num*10*day-num*10*day*0.05)+"¸¸¿ø");
+//			System.out.println("ï¿½ï¿½ï¿½Î¹Ş±ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day+"ï¿½ï¿½ï¿½ï¿½");
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½İ¾ï¿½ : "+num*10*day*0.05+"ï¿½ï¿½ï¿½ï¿½");
+//			System.out.println("ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½: "+(num*10*day-num*10*day*0.05)+"ï¿½ï¿½ï¿½ï¿½");
 //			break;
 //	
 //		}
@@ -94,11 +94,11 @@ public class Test06 {
 //	}
 //}
 //		Scanner sc = new Scanner(System.in);
-//		System.out.print("¿©Çà±â°£(¿ù) : ");
+//		System.out.print("ï¿½ï¿½ï¿½ï¿½â°£(ï¿½ï¿½) : ");
 //		int month = sc.nextInt();
-//		System.out.print("¿©ÇàÀÎ¿ø(¸í) : ");
+//		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½(ï¿½ï¿½) : ");
 //		int num = sc.nextInt();
-//		System.out.print("¿©ÇàÀÏ¼ö(ÀÏ) : ");
+//		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½(ï¿½ï¿½) : ");
 //		int day = sc.nextInt();
 //		int money = num*day*10;
 //		double sale = 0;
@@ -116,9 +116,9 @@ public class Test06 {
 //			sale = 0.05;
 //			break;
 //		}
-//		System.out.printf("ÇÒÀÎ¹Ş±â Àü ±İ¾× : %d¸¸¿ø\n", money);
-//		System.out.printf("ÇÒÀÎ ±İ¾× : %.2f¸¸¿ø\n", (money*sale));
-//		System.out.printf("ÇÒÀÎ¹ŞÀº ÈÄ ±İ¾× : %.2f¸¸¿ø\n", money*(1-sale));
+//		System.out.printf("ï¿½ï¿½ï¿½Î¹Ş±ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : %dï¿½ï¿½ï¿½ï¿½\n", money);
+//		System.out.printf("ï¿½ï¿½ï¿½ï¿½ ï¿½İ¾ï¿½ : %.2fï¿½ï¿½ï¿½ï¿½\n", (money*sale));
+//		System.out.printf("ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : %.2fï¿½ï¿½ï¿½ï¿½\n", money*(1-sale));
 		
 		
 				
@@ -130,11 +130,11 @@ public class Test06 {
 
 
 //		Scanner sc = new Scanner(System.in);
-//		System.out.print("ÀÎ¿ø ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+//		System.out.print("ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ : ");
 //		int num = sc.nextInt();
-//		System.out.print("¿©ÇàÀÏÀÚ°¡ ¸î¿ùÀÎÁö ÀÔ·ÂÇÏ¼¼¿ä : ");
+//		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ : ");
 //		int month = sc.nextInt();
-//		System.out.print("¿©Çà ÀÏ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+//		System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¼ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ : ");
 //		int day = sc.nextInt();
 //		int money = num*day*10;
 //		double sale=0;
@@ -152,9 +152,9 @@ public class Test06 {
 //			sale = 0.05;
 //			break;
 //		}
-//		System.out.printf("ÇÒÀÎ¹Ş±â Àü ±İ¾× : %d¸¸¿ø\n",money);
-//		System.out.printf("ÇÒÀÎ ±İ¾× : %.2f¸¸¿ø\n",(money*sale));
-//		System.out.printf("ÇÒÀÎ¹ŞÀº ÈÄ ±İ¾× : %.2f¸¸¿ø\n",(money*(1-sale)));
+//		System.out.printf("ï¿½ï¿½ï¿½Î¹Ş±ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : %dï¿½ï¿½ï¿½ï¿½\n",money);
+//		System.out.printf("ï¿½ï¿½ï¿½ï¿½ ï¿½İ¾ï¿½ : %.2fï¿½ï¿½ï¿½ï¿½\n",(money*sale));
+//		System.out.printf("ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½İ¾ï¿½ : %.2fï¿½ï¿½ï¿½ï¿½\n",(money*(1-sale)));
 	}
 }
 
