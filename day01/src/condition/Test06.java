@@ -31,7 +31,7 @@ public class Test06 {
 		int discount = total*rate/100;
 		int result = total-discount;
 		
-		System.out.println("할인 전 : "+total+"원");
+		System.out.println("할인 전! : "+total+"원");
 		System.out.println("할인금액: "+discount+"원");
 		System.out.println("할인 후 : "+result+"원");
 		
