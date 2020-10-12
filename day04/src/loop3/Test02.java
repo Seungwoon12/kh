@@ -1,8 +1,9 @@
+
 package loop3;
 
 import java.util.Scanner;
 
-public class Test01 {
+public class Test02 {
 	public static void main(String[] args) {
 		//do~while 반복
 		// - 다른 반복문과 약간의 차이만 존재
@@ -13,12 +14,13 @@ public class Test01 {
 		Scanner sc = new Scanner(System.in);
 		
 		int score;
-		do {
+		while(true) {
 			System.out.println("국어점수 입력");
 			score = sc.nextInt();
+			if(score >= 0 && score <= 100) {
+				break;
+			}
 		}
-		while(score < 0 || score > 100);
-		//while(!(score >= 0 && score <= 100));
 		
 		System.out.println("입력된 점수 : "+score);
 	}
