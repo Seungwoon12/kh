@@ -4,15 +4,16 @@ public class Market {
 
 	String code;
 	String name;
+	
 	String category;
 	int price;
 	
-	void info(String a, String b, String c, int d) {
+	void info(String code, String name, String category, int price) {
 		
-		this.code = a;
-		this.name = b;
-		this.category = c;
-		this.price = d;
+		this.code = code;   //this가 있기 때문에 명칭 동일하게 해도 오류안뜸(헷갈림 방지하기 위해 명칭 동일하게 하는게 좋음)
+		this.name = name;
+		this.category = category;
+		this.price = price;
 	}
 	
 	
