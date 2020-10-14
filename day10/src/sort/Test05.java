@@ -16,6 +16,7 @@ public class Test05 {
 			if(backup < data[i]) {//배열이 백업보다 클 때
 				//m을 왼쪽으로 한칸 이동시킨다
 				m--;
+				
 				//data[i]를 오른쪽으로 한칸 이동시킨다
 				data[i+1] = data[i];
 			}
