@@ -1,6 +1,6 @@
 package oop.basic1;
-/*
- *  컴퓨터
+/**
+ *  oop = object oriented programming
  * 
  * 
  * 

@@ -8,19 +8,29 @@ public class Test03_1 {
 		int col = 5;
 		int[][] data = new int[row][col]; 
 			
-		
-			
-		int num = 1;	
-			
-		for(int k=0; k<row; k++) {
-			for(int i=0; i<col; i++) {
-				data[k][i] = num++;
-				System.out.print(data[k][i]);
 	
+		int k=0, j=0;
+		
+		
+		
+		for(int i=1; i<=25; i++) {
+			data[k][j] = i;
+			j++;
+				
+			if(j==data[k].length) {
+				j=0;
+				k++;
 			}
-			
 		}
 		
-				
+		for(int x=0; x<row; x++) {
+			for(int y=0; y<col; y++) {
+				System.out.print(data[x][y]+" ");
+			}
+			System.out.println();
+		}
+	
+			
+		
 	}
 }
