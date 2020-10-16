@@ -2,6 +2,7 @@ package oop.inherit1;
 
 //갤럭시 노트 20
 public class GalaxyNote20 {
+	//멤버 변수
 	private String number;
 	private String color;
 	private int price;
@@ -14,7 +15,7 @@ public class GalaxyNote20 {
 		System.out.println("문자 보내기!");
 	}
 	public void camera() {
-		System.out.println("사진 촬영!");
+		System.out.println("카메라 촬영!");
 	}
 	public void bixby() {
 		System.out.println("하이 빅스비!");

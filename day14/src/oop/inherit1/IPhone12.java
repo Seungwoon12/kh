@@ -1,7 +1,8 @@
 package oop.inherit1;
 
-//아이폰12
+//아이폰 12
 public class IPhone12 {
+	//멤버 변수
 	private String number;
 	private String color;
 	private int price;
@@ -14,7 +15,7 @@ public class IPhone12 {
 		System.out.println("문자 보내기!");
 	}
 	public void camera() {
-		System.out.println("사진 촬영!");
+		System.out.println("카메라 촬영!");
 	}
 	public void siri() {
 		System.out.println("시리야!");
