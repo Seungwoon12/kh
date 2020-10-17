@@ -16,7 +16,7 @@ public class Pororo extends Doll{
 	
 	//hello가 있긴 있어야 되는데 내용이 마음에 안드니까 재정의(Override)
 	// - 원본과 동일하게 구성해야함
-	@Override//이거 재정의 한 메소드임!(Annotation, 어노테이션)
+	@Override//이거 재정의 한 메소드임!(Annotation, 어노테이션)	
 	public void hello() {
 		System.out.println("안녕 난 뽀로로야");
 	}
