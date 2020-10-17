@@ -8,5 +8,8 @@ public class Test01 {
 //		a.setId("admin");//a의 id를 admin로 변경(말이 안됨)
 		a.setPassword("2345");//a의 비밀번호를 2345로 변경
 		a.setNickname("테스트");
+		
+		a.print();
+		b.print();
 	}
 }

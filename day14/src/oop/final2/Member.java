@@ -17,6 +17,7 @@ public class Member {
 		this.setPassword(password);
 		this.setNickname(nickname);
 	}
+	
 	public String getPassword() {
 		return password;
 	}
@@ -37,5 +38,12 @@ public class Member {
 	}
 	public String getId() {
 		return id;
+	}
+	
+	public void print() {
+		System.out.println("아이디  : "+this.id);
+		System.out.println("비밀번호 : "+this.password);
+		System.out.println("닉네임 : "+this.nickname);
+		System.out.println("포인트 : "+this.point);
 	}
 }
