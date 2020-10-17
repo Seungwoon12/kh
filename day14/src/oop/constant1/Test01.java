@@ -12,6 +12,7 @@ public class Test01 {
 		public static final int 가위 = 1;
 		public static final int 바위 = 2;
 		public static final int 보자기 = 3;
+	
 		
 		public static void main(String[] args) {
 			//컴퓨터가 가위바위보를 랜덤으로 내도록 프로그래밍
@@ -20,6 +21,7 @@ public class Test01 {
 			// - 약속 : 가위(1), 바위(2), 보자기(3) = 1부터 3개(3까지가 아님)
 			
 			//도구 생성(Random)
+			
 			//- 자동 추천을 눌러 import
 			//- 컨트롤 + 쉬프트 + O
 			//- 직접 작성
