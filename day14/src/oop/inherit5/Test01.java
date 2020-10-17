@@ -2,7 +2,7 @@ package oop.inherit5;
 
 public class Test01 {
 	public static void main(String[] args) {
-		MP3 t1 = new MP3("Lovesick girl");
+		MP3 t1 = new MP3("Lovesick girls","3.57MB",193);
 		AVI t2 = new AVI("인터스텔라","1.85GB", 2);
 		PPT t3 = new PPT("KH정보교육원 커리큘럼", "5MB", 100);
 		
