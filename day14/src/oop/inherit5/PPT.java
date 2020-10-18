@@ -21,7 +21,6 @@ public class PPT extends Type{
 	
 	
 	
-	
 	@Override
 	public void execute () {
 		System.out.println("파워포인트 애니메이션을 재생합니다.");

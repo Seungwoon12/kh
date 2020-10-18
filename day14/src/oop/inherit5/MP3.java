@@ -20,7 +20,6 @@ public class MP3 extends Type {
 	}
 	
 	
-	
 	@Override
 	public void execute() {
 		System.out.println("음악 재생을 시작합니다.");
@@ -38,7 +37,5 @@ public class MP3 extends Type {
 		System.out.println("파일명 : "+super.filename);
 		System.out.println("파일크기 : "+super.filesize);
 		System.out.println("재생시간 : "+this.duration+"초");
-	}
-	
-	
+	}	
 }

@@ -38,6 +38,5 @@ public class AVI extends Type {
 		System.out.println("파일명 : "+super.filename);
 		System.out.println("파일크기 : "+super.filesize);
 		System.out.println("배속 : "+this.speed);
-	}
-	
+	}	
 }
