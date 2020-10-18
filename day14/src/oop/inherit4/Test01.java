@@ -11,6 +11,5 @@ public class Test01 {
 		e.move();
 		e.refresh();
 		e.windows();
-	
 	}
 }
