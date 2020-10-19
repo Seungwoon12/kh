@@ -1,39 +1,28 @@
 package oop.inherit5;
 
-public class PPT extends Type{
-	
-	public PPT(String filename, String filesize, int size) {
-		super(filename, filesize);
-		this.size= size;
-	}
-	public PPT(String filename, String filesize) {
-		super(filename, filesize);
-		this.size = 1;
-	}
-	public PPT(String filename, int size) {
-		super(filename);
-		this.size = size;
-	}
+public final class PPT extends File{
+	private int size = 1;
+
 	public PPT(String filename) {
 		super(filename);
-		this.size = 1;
 	}
-	
-	
-	
+
 	@Override
-	public void execute () {
-		System.out.println("파워포인트 애니메이션을 재생합니다.");
+	public void execute() {
+		System.out.println("파워포인트 애니메이션을 재생합니다");
 	}
 	
 	public void information() {
-		System.out.println(filename+", "+filesize+", "+size+"장");
+//		부모클래스 변수가 private일 경우 직접 접근이 불가하므로 이용 절차가 까다로워진다
+//		System.out.println("이름 : "+this.filename);
+//		System.out.println("이름 : "+super.filename);
+		System.out.println("이름 : "+filename);
+//		System.out.println("이름 : "+this.getFilename());
+//		System.out.println("이름 : "+super.getFilename());
+//		System.out.println("이름 : "+getFilename());
+		
+		System.out.println("크기 : "+filesize+"bytes");
+		System.out.println("장수 : "+size+"장");
 	}
-	
-	@Override
-	public void print() {
-		System.out.println("파일명 : "+super.filename);
-		System.out.println("파일크기 : "+super.filesize);
-		System.out.println("장수 : "+this.size+"장");
-	}
+
 }

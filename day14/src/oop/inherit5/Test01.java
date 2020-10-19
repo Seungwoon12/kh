@@ -2,26 +2,20 @@ package oop.inherit5;
 
 public class Test01 {
 	public static void main(String[] args) {
-		MP3 t1 = new MP3("Lovesick girls","3.57MB",193);
-		AVI t2 = new AVI("인터스텔라","1.85GB", 2);
-		PPT t3 = new PPT("KH정보교육원 커리큘럼", "5MB", 100);
+		//AVI, MP3, PPT의 객체를 생성하여 각각 기능을 실행!
+		//캡슐화 : 내부 구조는 감추고 기능 단위로 외부에 노출시키는 프로그래밍 디자인 방식
+		MP3 mp3 = new MP3("test.mp3");
+		mp3.execute();
+		mp3.rewind();
+		mp3.forward();
 		
-		t1.print();
-		t1.execute();
-		t1.forward();
-		t1.rewind();
+		AVI avi = new AVI("test.avi");
+		avi.execute();
+		avi.rewind();
+		avi.forward();
 		
-		t2.print();
-		t2.execute();
-		t2.forward();
-		t2.rewind();
-		
-		t3.print();
-		t3.execute();
-		t3.information();	
+		PPT ppt = new PPT("test.pptx");
+		ppt.execute();
+		ppt.information();
 	}
-	
-	
-	//duration 자료형을 String으로 하고싶은데 그러면 filesize하고 자료형이 겹치게 돼서 오류남
-	// 해결방법이 무엇?
 }

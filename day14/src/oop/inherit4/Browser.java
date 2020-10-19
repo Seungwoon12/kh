@@ -10,10 +10,10 @@ public class Browser {
 	}
 
 	
-	public void move() {
+	public final void move() {
 		System.out.println("다른 페이지로 이동합니다.");
 	}
-	public void refresh() {
+	public final void refresh() {
 		System.out.println("새로고침을 시도합니다.");
 	}		
 }
