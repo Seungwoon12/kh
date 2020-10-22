@@ -1,4 +1,4 @@
-package oop.inherit6;
+	package oop.inherit6;
 
 //추상 클래스(abstract class)
 // - 상속관계에서 상위 클래스의 역할을 수행하는 클래스
