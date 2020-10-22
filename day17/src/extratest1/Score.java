@@ -30,5 +30,22 @@ public class Score {
 		this.setJsp(jsp);
 	}
 	
+	public int getTotal() {
+		return this.java + this.jsp;
+	}
+	
+	public double getAverage() {
+		return this.getTotal() / 2.0;
+	}
+	
+	public void print() {
+		System.out.println("<학생 정보>");
+		System.out.println("이름 : "+this.name);
+		System.out.println("자바점수 : "+this.java);
+		System.out.println("JSP점수 : "+this.jsp);
+		System.out.println("총점 : "+this.getTotal());
+		System.out.println("평균 : "+this.getAverage());
+	}
+	
 	
 }
