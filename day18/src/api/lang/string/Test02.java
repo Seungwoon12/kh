@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Test02 {
 	public static void main(String[] args) {
 		//로그인 프로그램
+		//contentEquals는  String이 아니라 다른 클래스와 비교가 가능
 		
 		Scanner sc = new Scanner(System.in);
 		
