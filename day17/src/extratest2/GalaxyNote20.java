@@ -5,9 +5,7 @@ public class GalaxyNote20 extends Phone {
 	public GalaxyNote20(String number) {
 		super(number);
 	}
-	public GalaxyNote20(String number, int price) {
-		super(number, price);
-	}
+
 
 	@Override
 	public void call() {

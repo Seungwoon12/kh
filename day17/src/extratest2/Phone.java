@@ -6,11 +6,12 @@ public abstract class Phone {
 	
 	public Phone(String number) {
 		this.setNumber(number);
-	}
-	public Phone(String number, int price) {
-		this.setNumber(number);
 		this.setPrice(price);
 	}
+//	public Phone(String number, int price) {
+//		this.setNumber(number);
+//		this.setPrice(price);
+//	}
 	
 	public String getNumber() {
 		return number;
