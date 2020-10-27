@@ -19,7 +19,7 @@ public class Test02 {
 		c.set(Calendar.MONTH, 4);
 //		3.일을 3일로 변경
 		c.set(Calendar.DATE, 3);
-		
+				
 //		c.set(2021, 4, 3);
 		
 //		.getTime() : Calendar의 날짜정보를 Date로 옮김

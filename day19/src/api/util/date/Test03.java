@@ -22,7 +22,7 @@ public class Test03 {
 //		3. 오후 8:10
 		SimpleDateFormat f3 = new SimpleDateFormat("a h:mm");
 		System.out.println(f3.format(d));
-		
+			
 //		4. 2020-10-23 금
 		SimpleDateFormat f4 = new SimpleDateFormat("yyyy-MM-dd E요일");
 		System.out.println(f4.format(d));

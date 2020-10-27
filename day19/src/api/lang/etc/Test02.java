@@ -12,7 +12,7 @@ public class Test02 {
 		System.err.println("안녕");
 		
 		//표준 입력 : System.in + Scanner
-		
+	
 		//운영체제의 시간 정보 불러오기
 		// - 프로그래밍에서는 기준시라 불리는 시간이 있다(1970년 1월 1일 0시 0분 0초)
 		// - currentTimeMillis() 는 기준시로부터 흐른 총 밀리초를 반환한다

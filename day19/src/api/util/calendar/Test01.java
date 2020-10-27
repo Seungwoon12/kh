@@ -17,6 +17,10 @@ public class Test01 {
 //		2. 반환 : .get(항목)
 //		- YEAR : 연도
 //		- MONTH : 월(Calendar에서 월은 0부터 11까지로 설정한다) - 꺼낼 때 +1 ,설정할 때 -1
+//		- DATE/DAY_OF_MONTH : 일
+//		- HOUR/HOUR_OF_DAY : 시간
+//		- MINUTE : 분
+//		- SECOND : 초
 		int year = c.get(Calendar.YEAR);
 		System.out.println(year);
 		
