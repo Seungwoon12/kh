@@ -1,0 +1,33 @@
+package api.collection4;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Test04_1 {
+	public static void main(String[] args) {
+		//저장소
+		Map<String, Integer> vote = new HashMap<>();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		while(true) {
+			System.out.print("래퍼 입력 : ");
+			String name = sc.next();
+			if(name.equals("그만")) {
+				break;
+			}
+			
+			Integer count = vote.get(name);//없을수도 있으니 Integer로 추출
+			if(count == null) {
+				count = 0;
+			}
+			vote.put(name, count + 1);			
+			
+			System.out.println("["+name+"]을(를) 입력하셨습니다. 현재 득표수 : " + vote.get(name));
+		}
+		
+		System.out.println("프로그램을 종료합니다");
+		sc.close();
+	}
+}
