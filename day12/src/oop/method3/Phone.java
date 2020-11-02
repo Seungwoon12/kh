@@ -1,55 +1,41 @@
 package oop.method3;
-
+//휴대전화 = 이름 + 통신사 + 판매가 + 약정개월
 public class Phone {
 	String name;
-	String service;
+	String telecom;
 	int price;
-	int monthly;
-	
+	int month;
 	
 	void setName(String name) {
 		this.name = name;
 	}
-	
-	void setService(String service) {
-		this.service = service;
+	void setTelecom(String telecom) {
+		this.telecom = telecom;
 	}
-	
 	void setPrice(int price) {
 		if(price < 0) {
-			return; //메소드 실행 중지
+			return;//메소드 실행 중지
 		}
 		this.price = price;
 	}
-	
-	void setMonthly(int monthly) {
-		if(monthly == 24 || monthly == 30 || monthly == 36) {
-			this.monthly = monthly;
+	void setMonth(int month) {
+		switch(month) {
+		case 24: case 30: case 36:
+			this.month = month;
 		}
-		else {
-			monthly = 0;
-		}
-		
-		
 	}
 	
-	void info(String name, String service, int price, int monthly) {
-		this.setName(name);
-		this.setService(service);
-		this.setPrice(price);
-		this.setMonthly(monthly);
+	void info(String name, String telecom, int price, int month) {
+		this.setName(name);//내가 가진 setName메소드를 호출
+		this.setTelecom(telecom);//내가 가진 setTelecom메소드를 호출
+		this.setPrice(price);//내가 가진 setPrice메소드를 호출
+		this.setMonth(month);//내가 가진 setMonth메소드를 호출
 	}
-	
 	
 	void print() {
 		System.out.println("이름 : "+this.name);
-		System.out.println("통신사 : "+this.service);
-		System.out.println("가격 : "+this.price+"원");
-		if(monthly == 0) {
-			System.out.println("약정개월수 : "+"일시불");
-		}
-		else {
-			System.out.println("약정개월수 : "+this.monthly+"개월");
-		}
+		System.out.println("통신사 : "+this.telecom);
+		System.out.println("가격 : "+this.price);
+		System.out.println("약정개월 : "+this.month);
 	}
 }

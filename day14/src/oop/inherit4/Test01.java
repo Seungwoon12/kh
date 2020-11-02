@@ -2,14 +2,14 @@ package oop.inherit4;
 
 public class Test01 {
 	public static void main(String[] args) {
-		Chrome c = new Chrome("https://www.google.com/", "v20");
-		Edge e = new Edge("https://www.naver.com/", "v20");
-		c.move();
-		c.refresh();
-		c.develop();
-		
-		e.move();
-		e.refresh();
-		e.windows();
+		Chrome chrome = new Chrome("http://www.naver.com", "86.0.4240.75");
+		chrome.move();
+		chrome.refresh();
+		chrome.develop();
+
+		Edge edge = new Edge("http://www.naver.com", "86.0.622.43");
+		edge.move();
+		edge.refresh();
+		edge.windows();
 	}
 }

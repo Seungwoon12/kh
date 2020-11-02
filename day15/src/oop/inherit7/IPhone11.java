@@ -17,8 +17,8 @@ public final class IPhone11 extends Phone {
 	@Override
 	public void camera() {
 		System.out.println("IPhone11의 카메라 기능 사용!");
-	
 		
 	}
+	
 	
 }

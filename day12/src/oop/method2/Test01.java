@@ -2,12 +2,13 @@ package oop.method2;
 
 public class Test01 {
 	public static void main(String[] args) {
-		Student s1 = new Student();
+		Student a = new Student();
 		
-		s1.setName("홍길동");
+		//a.name = "홍길동";
+		a.setName("홍길동");
+		//a.score = -80;
+		a.setScore(80);
 		
-		s1.setScore(25);
-		
-		s1.print();
+		a.print();
 	}
 }

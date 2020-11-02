@@ -2,7 +2,6 @@ package oop.basic4;
 
 public class Test01 {
 	public static void main(String[] args) {
-		
 		//객체 생성(3개)
 		Menu m1 = new Menu();
 		Menu m2 = new Menu();
