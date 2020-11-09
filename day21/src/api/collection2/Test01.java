@@ -14,8 +14,9 @@ public class Test01 {
 		//추가 명령 : .add(E)
 		// - 데이터를 한 개만 추가할 수 있다
 		
-		//Student st = new Student("홍길동", 70);
-		//list.add(st);
+//		Student st = new Student("홍길동", 70);
+//		list.add(st);
+		
 		list.add(new Student("홍길동", 70));
 		
 		list.add(new Student("피카츄", 90));
