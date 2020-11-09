@@ -16,6 +16,7 @@ public class Test05 {
 		File[] files = dir.listFiles();
 		System.out.println(files.length);
 		
+		
 		for(File f : files) {
 			System.out.println(f.getPath());
 			//System.out.println(f.getAbsolutePath());
