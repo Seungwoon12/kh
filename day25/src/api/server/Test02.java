@@ -25,6 +25,7 @@ public class Test02 {
 		String text = new String(dp.getData(), 0, dp.getLength());
 		System.out.println("text = " + text);//문자로 치면 전송내용
 		
+		
 		InetAddress addr = dp.getAddress();
 		System.out.println("addr = " + addr);//IP 정보 객체
 		int port = dp.getPort();

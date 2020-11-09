@@ -18,7 +18,7 @@ public class Test01_2 {
 		int port = 33333;
 		
 		//연결
-		Socket socket = new Socket(addr, port);
+		Socket socket = new Socket(addr, 33333);
 		//Socket socket = new Socket("localhost", port);
 		
 		//연결 이후에 수행할 작업
