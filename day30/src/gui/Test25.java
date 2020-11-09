@@ -15,6 +15,7 @@ class MyFrame25 extends JFrame{
 	private JPanel root = new JPanel();
 	
 	private JButton bt = new JButton("버튼");
+	
 	//멤버 메소드 : 배치기능
 	public void place() {
 		//root를 Frame의 ContentPane으로 설정
@@ -23,10 +24,12 @@ class MyFrame25 extends JFrame{
 		root.add(bt);
 	}
 	
+	//멤버 메소드 : 이벤트 설정
 	public void event() {
 		
 	}
 	
+	//멤버 메소드 : 메뉴 설정
 	public void menu() {
 		
 	}
@@ -34,13 +37,13 @@ class MyFrame25 extends JFrame{
 	//생성자 : 창에 대한 설정
 	public MyFrame25() {
 		this.place();
-		this.event();
 		this.menu();
+		this.event();
 		this.setTitle("GUI 예제 25");
 		this.setLocation(100, 100);
 		this.setSize(400, 400);
-		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setResizable(false);
 		this.setVisible(true);
 	}
 }
@@ -48,15 +51,20 @@ class MyFrame25 extends JFrame{
 public class Test25 {
 	public static void main(String[] args) {
 		//main에 더이상 모든 코드를 적지 않겠다
+		//- 창 생성 전에 스킨을 적용시키는 설정을 수행
+		//- 스킨을 LookAndFeel이라고 부른다
+		//- 자체적으로 제공되는 LookAndFeel도 있고 외부에서 제공하는 LookAndFeel(ex : JTattoo)
+		//UIManager.setLookAndFeel("적용시킬 클래스명");
+		
 		try {
-//			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-//			UIManager.setLookAndFeel(new McWinLookAndFeel());
+			//UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+			//UIManager.setLookAndFeel(new McWinLookAndFeel());
 			UIManager.setLookAndFeel(new TextureLookAndFeel());
-			
 		}
 		catch(Exception e) {
-			System.out.println("스킨을 불러올 수 없습니다.");
+			System.err.println("스킨을 불러올 수 없습니다");
 		}
+		
 		MyFrame25 frame = new MyFrame25();
 	}
 }
