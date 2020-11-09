@@ -13,6 +13,7 @@ public class Test01 {
 		//.hasNext() : 읽어올 데이터가 있는지를 파악하는 명령
 		while(sc.hasNext()) {
 			System.out.println(sc.next());
+			
 		}
 		
 		//스캐너와 같은 읽기/쓰기 도구들은 반드시 사용한 뒤에 정리를 해야한다

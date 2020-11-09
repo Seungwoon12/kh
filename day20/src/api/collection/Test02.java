@@ -28,12 +28,16 @@ public class Test02 {
 		List<String> f = new ArrayList<>();
 		
 		//데이터 추가 : add() , Generic에 명시된 형태만 추가가 가능
-		//e.add(100);
+//		e.add(100);
 		e.add("한국");
 		e.add("중국");
 		e.add("파푸아뉴기니");
 		e.add("탄자니아");
 		e.add("오스크만제국");
+		
+	
+		
+		
 		
 		//저장소 출력
 		System.out.println("e = " + e);
