@@ -2,19 +2,21 @@ package oop.inherit7;
 
 public class Test01 {
 	public static void main(String[] args) {
-		ZFlip z = new ZFlip();
-		z.call();
-		z.sms();
-		z.camera();
+		//각각의 휴대폰들의 인스턴스를 생성하여 기능 사용
+		ZFlip a = new ZFlip();
+		V60 b = new V60();
+		IPhone11 c = new IPhone11();
 		
-		V60 v = new V60();
-		v.call();
-		v.sms();
-		v.camera();
+		a.call();
+		a.sms();
+		a.camera();
 		
-		IPhone11 i = new IPhone11();
-		i.call();
-		i.sms();
-		i.camera();
+		b.call();
+		b.sms();
+		b.camera();
+		
+		c.call();
+		c.sms();
+		c.camera();
 	}
 }
