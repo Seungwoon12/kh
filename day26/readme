@@ -1,0 +1,29 @@
+GUI Programming
+Graphic User Interface의 줄임말로 그래픽으로 이루어진 프로그램을 의미한다. 반대되는 용어로 CLI(Command Line Interface)가 있다.
+
+여태까지 사용하던 방식의 프로그래밍이 CLI Programming이다.
+
+자바가 GUI가 주력은 아니지만 원한다면 구현할수는 있고 우리는 원리 위주로 배운다.
+
+구현 가능한 방식
+java.awt 패키지
+javax.swing 패키지(확장패키지)
+swt 패키지(이클립스 만든 패키지)
+javafx(확장 프레임워크)
+JFrame
+창을 의미하는 클래스. GUI 프로그래밍의 기본단위이다. 자바 GUI에서는 여러 클래스가 있지만 우리는 javax.swing.JFrame을 배운다
+
+JComponent
+화면에 배치할 수 있는 도구들을 통칭하는 형태
+
+JLabel : 글자나 아이콘을 보관하는 투명한 공간
+JButton : 누를 수 있는 도구
+JTextField : 입력할 수 있는 도구
+JCheckBox : 체크가 가능한 도구
+JRadioButton : 여러 개 중에서 하나만 체크가 가능한 도구
+Layout
+화면에 컴포넌트를 배치하는 방법
+
+FlowLayout : 배치한 순서대로 흐름에 맞게 배치하는 방법(좌에서 우로, 위에서 아래로)
+GridLayout : 행과 열을 지정하여 표 형태로 컴포넌트를 배치하는 방법(좌에서 우로, 위에서 아래로)
+BorderLayout : 방향을 지정하여 배치하는 방법(센터는 무조건 있어야 함), 각 방향에는 1개씩 배치가 가능하다
