@@ -101,8 +101,8 @@ class MyFrame27 extends JFrame{
 		menu.add(left);
 		menu.add(right);
 		
-		small.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_SUBTRACT, 0));
-		big.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ADD, 0));
+		small.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_MINUS, 0));
+		big.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_PLUS, 0));
 		up.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD8, 0));
 		down.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD2, 0));
 		right.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD6, 0));
