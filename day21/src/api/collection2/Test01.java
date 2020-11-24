@@ -46,8 +46,8 @@ public class Test01 {
 		}
 		System.out.println();
 		for(Student stu : list) {
-			System.out.println(stu.getName());
-			System.out.println(stu.getScore());
+			System.out.println(stu.getName()); //웹개발에서 가장 많이 나오는 코드
+			System.out.println(stu.getScore()); //웹개발에서 가장 많이 나오는 코드
 		}
 	}
 }

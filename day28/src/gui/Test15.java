@@ -71,7 +71,7 @@ class MyFrame15 extends JFrame{
 		ActionListener ac3 = e->{
 			//창을 닫는 코드
 			dispose();
-			//System.exit(0);//시스템을 종료하는 코드
+//			System.exit(0);//시스템을 종료하는 코드
 		};
 		close.addActionListener(ac3);
 	}

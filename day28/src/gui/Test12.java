@@ -78,11 +78,11 @@ class MyFrame12 extends JFrame{
 		//목표 : LineBorder를 만들어서 프레임(this)에 설정
 		// - 프레임(this)은 테두리 설정이 안되기 때문에 패널(JPanel)로 교체해서 사용
 		//Border border = new LineBorder(Color.red);
-		//Border border = new LineBorder(Color.red, 10); 
+//		Border border = new LineBorder(Color.red, 10); 
 		//Border line = new LineBorder(Color.red, 10, false);
 		//Border border = new TitledBorder("설문지");
 		//Border empty = new EmptyBorder(10, 10, 10, 10);
-		//Border border = new CompoundBorder(empty, line);
+//		Border border = new CompoundBorder(empty, line);
 		
 		//BorderFactory 사용
 		Border line = BorderFactory.createLineBorder(Color.red, 10, false);
