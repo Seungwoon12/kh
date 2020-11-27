@@ -22,7 +22,7 @@ public class Test01 {
 		
 		System.out.println("준비 성공!");
 		
-		//2. 주소, 계정, 비밀번호
+		//2. 주소(url), 계정, 비밀번호
 		// jdbc:oracle:thin: 연결을 위해 사용되는 도구의 종류(드라이버 종류)
 		// localhost : 데이터베이스의 위치(IP)
 		// 1521 : 데이터베이스 접속 포트(Port)
