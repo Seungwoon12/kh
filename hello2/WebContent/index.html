@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>앞으로 사용할 레이아웃</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        main, header, nav, section, footer, article, aside {
+            border:1px solid black;
+        }
+        
+        /*
+            메인 영역 : 폭 1000px 고정
+        */
+        main {
+            width:1000px;
+            margin:auto;
+        }
+        
+        /* 전체 영역 안쪽 여백 1rem */
+        header, nav, aside, article, footer {
+            padding: 1rem;
+        }
+        
+        /* 사이드와 본문은 2단 배치 */
+        section::after {
+            content:"";
+            display: block;
+            clear:both;
+        }
+        
+        aside {
+            float:left;
+            width:15%;
+            min-height:400px;
+        }
+        article {
+            float:left;
+            width:85%;
+            min-height:400px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        시맨틱 태그(semantic tag) : 의미전달이 쉽도록 기존의 태그들에 여러 이름을 붙여놓은 태그
+        - 이름만 봐도 역할을 알 수 있음
+    -->
+    <main>
+        <header>헤더</header>
+        <nav>메뉴</nav>
+        <section>
+            <aside>사이드</aside>
+            <article>본문</article>
+        </section>
+        <footer>푸터</footer>
+    </main>
+</body>
+</html>

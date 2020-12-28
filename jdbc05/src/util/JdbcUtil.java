@@ -15,10 +15,10 @@ import java.sql.SQLException;
 public class JdbcUtil {
 	
 	//연결 생성 메소드(getConnection), 반환형이 Connection 이니깐 public 뒤에 Connection 써줌
-	public static Connection getConnection() throws ClassNotFoundException, SQLException {
+	public static Connection getConnection(String username, String password) throws ClassNotFoundException, SQLException {
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection con = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521:xe", "kh", "kh");
+				"jdbc:oracle:thin:@localhost:1521:xe", username, password);
 		return con;
 	}
 }
