@@ -32,9 +32,7 @@ public class Quiz3Servlet extends HttpServlet {
 		resp.setContentType("text/plain");
 		resp.getWriter().println(result);
 		
-		String c = "abcd";
 		
-		System.out.println(c.substring(1, 2));
 		
 	}
 }
