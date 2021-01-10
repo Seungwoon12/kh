@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>인원등록</h1>
+	<!-- 
+		절대경로(전체주소) 
+		- /web/person/regist.do
+		
+		상대경로(이 페이지를 기준으로 정하는 주소)
+		- regist.do
+	 -->
+	
+	<form action="regist.do" method="post">
+		이름 : <input type="text" name="person_name" required><br><br>
+		자바점수 : <input type="number" name="javascore" required><br><br>
+		DB점수 : <input type="number" name="dbscore" required><br><br>
+		성별 : 
+		<input type="radio" name="gender" value="남자" checked> <label>남자</label>
+		<input type="radio" name="gender" value="여자"> <label>여자</label>
+		<br><br>
+		<input type="submit" value="등록">
+	</form>
+</body>
+</html>

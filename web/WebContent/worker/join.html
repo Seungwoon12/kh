@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <link rel="stylesheet" type="text/css" href="/web/css/common.css"> -->
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+</head>
+<body>
+	<h1>직원 등록</h1>
+<!-- 	<form action="/web/worker/join.do" method="post"></form> -->
+	<form action="join.do" method="post">
+		이름 : <input type="text" name="worker_name"><br><br>
+		고용일 : <input type="date" name="hire_date"><br><br>
+		급여 : <input type="text" name="salary"><br><br>
+		직급 : 
+		<select name="position">
+			<option>인턴</option>
+			<option>사원</option>
+			<option>주임</option>
+			<option>대리</option>
+			<option>과장</option>
+			<option>차장</option>
+			<option>부장</option>
+			<option>임원</option>
+			<option>사장</option>
+		</select>
+		<br><br>
+		<input type="submit" value="등록">
+	</form>
+</body>
+</html>
