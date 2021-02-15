@@ -17,6 +17,8 @@
 	//로그인 상태 : session 에 check 라는 이름의 값이 존재할 경우(null이 아닌 경우)
 	//로그아웃 상태 : session 에 check 라는 이름의 값이 존재하지 않을 경우(null인 경우)
 	boolean isLogin = session.getAttribute("check") != null;
+	
+	boolean isAdmin = isLogin && session.getAttribute("auth").equals("관리자");
 %>
 
 <!DOCTYPE html>
@@ -66,13 +68,16 @@
 			<a href="<%=request.getContextPath()%>">홈으로</a>
 			<a href="<%=request.getContextPath()%>/member/join.jsp">회원가입</a>
 			<a href="<%=request.getContextPath()%>/member/login.jsp">로그인</a>
-			<a href="#">게시판</a>
+			<a href="<%=request.getContextPath()%>/board/list.jsp">게시판</a>
 			<%}else{ %>
 			<!-- 회원이 마주할 메뉴 -->
 			<a href="<%=request.getContextPath()%>">홈으로</a>
 			<a href="<%=request.getContextPath()%>/member/logout.do">로그아웃</a>
 			<a href="<%=request.getContextPath()%>/member/my.jsp">내정보</a>
-			<a href="#">게시판</a>
+			<a href="<%=request.getContextPath()%>/board/list.jsp">게시판</a>
+			<%} %>
+			<%if(isAdmin) {%>
+			<a href="<%=request.getContextPath()%>/admin/home.jsp">관리메뉴</a>
 			<%} %>
 		</nav>
 		<section>

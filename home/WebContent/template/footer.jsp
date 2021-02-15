@@ -11,6 +11,7 @@
 			-->
 			<h5 class="center">Session ID : <%=session.getId()%></h5>
 			<h5 class="center">check : <%=session.getAttribute("check")%></h5>
+			<h5 class="center">auth : <%=session.getAttribute("auth")%></h5>
 		</footer> 
 	</main>
 </body>

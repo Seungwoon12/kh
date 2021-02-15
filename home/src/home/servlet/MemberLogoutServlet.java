@@ -20,6 +20,8 @@ public class MemberLogoutServlet extends HttpServlet{
 		try {
 //			서블릿에서는 session 대신 req.getSession() 을 이용하여 세션에 접근한다
 			req.getSession().removeAttribute("check");//check값을 삭제하라
+			req.getSession().removeAttribute("auth");//auth값을 삭제하라
+//			req.getSession().invalidate();//세션을 파괴하라!
 			
 //			resp.sendRedirect("../index.jsp");//상대경로
 			resp.sendRedirect(req.getContextPath()+"/index.jsp");//root로 이동(절대경로)

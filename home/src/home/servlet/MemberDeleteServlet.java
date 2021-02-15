@@ -22,7 +22,12 @@ public class MemberDeleteServlet extends HttpServlet{
 			MemberDao dao = new MemberDao();
 			dao.delete(member_no);
 			
+			//세션 유지하면서 데이터만 삭제
 			req.getSession().removeAttribute("check");
+			req.getSession().removeAttribute("auth");
+			
+			//세션 만료
+//			req.getSession().invalidate();
 			
 //			결과 : 탈퇴완료 페이지(goodbye.jsp)로 리다이렉트
 //			= 세션에 들어있는 회원번호로 삭제하는데 실패할리가 있나~ 고려하지 않는다!

@@ -89,6 +89,9 @@ public class MemberDao {
 	}
 	
 	public List<MemberDto> select(String type, String keyword) throws Exception {
+//		분류나 검색어 중 하나라도 없으면 null 반환
+		if(type == null || keyword == null) return null;
+		
 		Connection con = JdbcUtil.getConnection(USERNAME, PASSWORD);
 		
 		String sql = "select * from member where instr(#1, ?) > 0 order by member_id asc";
@@ -247,5 +250,74 @@ public class MemberDao {
 		con.close();
 		
 		return count > 0; 
+	}
+	
+//	관리자용 회원수정
+	public boolean editByAdmin(MemberDto dto) throws Exception {
+		Connection con = JdbcUtil.getConnection(USERNAME, PASSWORD);
+		
+		String sql = "update member "
+						+ "set member_nick=?, member_birth=?, member_auth=?, member_point=? "
+						+ "where member_no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, dto.getMember_nick());
+		ps.setString(2, dto.getMember_birth());
+		ps.setString(3, dto.getMember_auth());
+		ps.setInt(4, dto.getMember_point());
+		ps.setInt(5, dto.getMember_no());
+		int count = ps.executeUpdate();
+		
+		con.close();
+		
+		return count > 0;
+	}
+	
+//	관리자용 임시 비밀번호 생성
+	public boolean editPasswordByAdmin(int member_no, String member_pw) throws Exception{
+		Connection con = JdbcUtil.getConnection(USERNAME, PASSWORD);
+		
+		String sql = "update member set member_pw=? where member_no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, member_pw);
+		ps.setInt(2, member_no);
+		int count = ps.executeUpdate();
+		
+		con.close();
+		
+		return count > 0;
+	}
+	
+//	랭킹 리스트 
+	public List<MemberRankVO> getPointRank(int start, int end) throws Exception {
+		Connection con = JdbcUtil.getConnection(USERNAME, PASSWORD);
+		
+		String sql = "select * from ("
+						+ "select "
+							+ "M.member_no, M.member_point, M.member_id,"
+							+ "M.member_nick, M.member_auth, M.member_join,"
+							+ "rank() over(order by member_point desc) rank "
+							+ "from member M"
+					+ ") where rank between ? and ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, start);
+		ps.setInt(2, end);
+		ResultSet rs = ps.executeQuery();
+		
+		List<MemberRankVO> list = new ArrayList<>();
+		while(rs.next()) {
+			MemberRankVO vo = new MemberRankVO();
+			vo.setMember_no(rs.getInt("member_no"));
+			vo.setMember_id(rs.getString("member_id"));
+			vo.setMember_nick(rs.getString("member_nick"));
+			vo.setMember_auth(rs.getString("member_auth"));
+			vo.setMember_join(rs.getDate("member_join"));
+			vo.setMember_point(rs.getInt("member_point"));
+			vo.setRank(rs.getInt("rank"));
+			
+			list.add(vo);
+		}
+		
+		con.close();
+		return list;
 	}
 }

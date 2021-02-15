@@ -30,16 +30,18 @@ public class MemberLoginServlet extends HttpServlet{
 			
 //			3. 성공/실패에 따른 리다이렉트 처리
 //			+ 추가 : 로그인 성공한 경우 세션에 check란 이름으로 사용자의 번호를 저장
+//			+ 추가 : 로그인 성공한 경우 세션에 auth란 이름으로 사용자의 권한을 저장
 			if(login) {
 //				서블릿에서는 내장객체가 없어서 요청 객체인 req를 이용하여 세션에 접근하도록 설계되어 있다
 				MemberDto m = dao.find(dto.getMember_id());//아이디로 회원정보 다 불러오기
 				req.getSession().setAttribute("check", m.getMember_no());
+				req.getSession().setAttribute("auth", m.getMember_auth());
 				resp.sendRedirect("../index.jsp");//상대경로
 //				resp.sendRedirect(req.getContextPath()+"/index.jsp");//절대경로
 			}
 			else { 
 				resp.sendRedirect("login.jsp?error");//상대경로
-//				resp.sendRedirect(req.getContextPath()+"/member/login.jsp");//절대경로
+//				resp.sendRedirect(req.getContextPath()+"/member/login.jsp?error");//절대경로
 			}
 		}
 		catch(Exception e) {
