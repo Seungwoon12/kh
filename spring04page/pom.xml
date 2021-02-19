@@ -20,8 +20,8 @@
 	-->
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kh</groupId>
-	<artifactId>spring04</artifactId>
-	<name>spring04page</name>
+	<artifactId>spring05</artifactId>
+	<name>spring05multiplepage</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	
