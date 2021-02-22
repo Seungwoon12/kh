@@ -7,22 +7,12 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
-	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
-
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
-
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
-	
-	<context:component-scan base-package="com.kh.spring06" />
-	
-	
+	<!-- 
+		컨트롤러를 한땀한땀 등록하려니 손가락이 아프다
+		= 패키지를 지정하고 자동으로 등록될 수 있도록 감시하자! 
+		= 컨트롤러를 등록하는 설정을 하는 것이 아니라 패키지를 감시하는 설정을 수행
+		= base-package에 작성하는 글자로 시작되는 패키지는 전부다 감시(하위 패키지 포함)
+	-->
+	<context:component-scan base-package="com.kh.spring06"></context:component-scan>
 	
 </beans:beans>
