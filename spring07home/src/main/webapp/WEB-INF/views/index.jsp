@@ -9,7 +9,7 @@
 		<h2>환영합니다!</h2>
 	</div>
 	<div class="row center">
-		<img alt="환영 이미지" src="/image/snow.gif">
+		<img alt="환영 이미지" src="https://placehold.it/700x400">
 	</div>
 </div> 
 
