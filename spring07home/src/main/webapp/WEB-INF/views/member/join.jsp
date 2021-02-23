@@ -3,7 +3,7 @@
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>		
 			
-<form action="join.do" method="post">
+<form action="join" method="post">
 	<div class="outbox" style="width:500px">
 		<div class="row center">
 			<h2>회원 정보 입력</h2>

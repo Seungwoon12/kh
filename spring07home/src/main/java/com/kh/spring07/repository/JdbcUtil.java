@@ -1,4 +1,4 @@
-package com.kh.spring07.util;
+package com.kh.spring07.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
