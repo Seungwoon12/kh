@@ -1,5 +1,8 @@
 package com.kh.spring07;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -43,10 +46,14 @@ public class MemberController {
 		return "member/login";//view resolver가 있을 때
 	}
 	
+	//세션이 필요한 경우에는 매개변수에 HttpSession 형태의 변수를 선언하면 자동 주입된다.
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(@ModelAttribute MemberDto memberDto) throws Exception {
+	public String login(@ModelAttribute MemberDto memberDto, HttpSession session) throws Exception {
 		boolean result = memberDao.login(memberDto);
 		if(result) {
+			MemberDto loginUser = memberDao.find(memberDto.getMember_id());
+			session.setAttribute("check", loginUser.getMember_no());
+			session.setAttribute("auth", loginUser.getMember_auth());
 			return "redirect:/";//최상위 경로(절대경로)
 		}
 		else {

@@ -13,8 +13,8 @@
 		= 컨트롤러를 등록하는 설정을 하는 것이 아니라 패키지를 감시하는 설정을 수행
 		= base-package에 작성하는 글자로 시작되는 패키지는 전부다 감시(하위 패키지 포함)
 	-->
-	<context:component-scan base-package="com.kh.spring07"></context:component-scan>
-	
+	<context:component-scan base-package="프로젝트의root패키지명작성"></context:component-scan>
+
 	<!-- 
 		뷰 리졸버(View Resolver)
 		= 컨트롤러에서 반환되는 주소에 자동으로 접두사, 접미사를 추가하는 도구
@@ -26,7 +26,7 @@
 	 	<beans:property name="prefix" value="/WEB-INF/views/"></beans:property>
 	 	<beans:property name="suffix" value=".jsp"></beans:property>
 	 </beans:bean>
-	 
+
 	  <!-- 
 	 	데이터베이스 연결을 담당하는 객체를 등록
 	 	= 연결 신규 생성 방식
@@ -60,7 +60,8 @@
 	 	= reference 설정으로 데이터베이스 연결객체를 주입해야 한다
 	  -->
 	  <beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	  	<!-- jdbcTemplate 객체의 dataSource라는 변수에 dbcpSource 객체를 연결해라! -->
 	  	<beans:property name="dataSource" ref="dataSource2"></beans:property>
 	  </beans:bean>
-	 
+		
 </beans:beans>
