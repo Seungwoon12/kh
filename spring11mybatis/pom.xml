@@ -20,8 +20,8 @@
 	-->
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kh</groupId>
-	<artifactId>spring10</artifactId>
-	<name>spring10test</name>
+	<artifactId>spring11</artifactId>
+	<name>spring11mybatis</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	
@@ -158,8 +158,7 @@
 		    <artifactId>spring-test</artifactId>
 		    <version>${org.springframework-version}</version>
 		    <scope>test</scope>
-		</dependency>
-		      
+		</dependency>       
 		
 		<!-- 오라클 드라이버 의존성 -->
 		<dependency>

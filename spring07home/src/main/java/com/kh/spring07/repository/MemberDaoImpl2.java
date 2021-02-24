@@ -24,6 +24,9 @@ public class MemberDaoImpl2 implements MemberDao{
 	// = 연결과 종료코드가 사라진다
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 
 	@Override
 	public void insert(MemberDto dto) throws Exception {
