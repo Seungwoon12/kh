@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.spring07.entity.MemberDto;
 import com.kh.spring07.entity.MemberRankVO;
 
-@Repository
+//@Repository
 public class MemberDaoImpl2 implements MemberDao{
 	
 	//이 클래스는 작업을 수행하기 위해 등록된 spring bean 중에서 jdbcTemplate이 필요하다.

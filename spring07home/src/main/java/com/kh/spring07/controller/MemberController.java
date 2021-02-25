@@ -1,4 +1,4 @@
-package com.kh.spring07;
+package com.kh.spring07.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

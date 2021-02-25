@@ -11,15 +11,9 @@
 	= request.getContextPath()
 	= /home 형태로 최상위 경로가 구해진다
  -->
- 
-<%
-	//사용자가 로그인 상태인지 계산하는 코드
-	//로그인 상태 : session 에 check 라는 이름의 값이 존재할 경우(null이 아닌 경우)
-	//로그아웃 상태 : session 에 check 라는 이름의 값이 존재하지 않을 경우(null인 경우)
-	boolean isLogin = session.getAttribute("check") != null;
-	
-	boolean isAdmin = isLogin && session.getAttribute("auth").equals("관리자");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="isLogin" value="${not empty check}"></c:set>
+<c:set var="isAdmin" value="${auth == '관리자'}"></c:set>
 
 <!DOCTYPE html>
 <html>
@@ -63,21 +57,23 @@
 			<h1 class="center">JSP로 홈페이지 만들기</h1>
 		</header>
 		<nav>
-			<%if(!isLogin){ %>
-			<!-- 비회원이 마주할 메뉴 -->
-			<a href="<%=request.getContextPath()%>/home/index">홈으로</a>
-			<a href="<%=request.getContextPath()%>/member/join.jsp">회원가입</a>
-			<a href="<%=request.getContextPath()%>/member/login.jsp">로그인</a>
-			<a href="<%=request.getContextPath()%>/board/list.jsp">게시판</a>
-			<%}else{ %>
-			<!-- 회원이 마주할 메뉴 -->
-			<a href="<%=request.getContextPath()%>">홈으로</a>
-			<a href="<%=request.getContextPath()%>/member/logout.do">로그아웃</a>
-			<a href="<%=request.getContextPath()%>/member/my.jsp">내정보</a>
-			<a href="<%=request.getContextPath()%>/board/list.jsp">게시판</a>
-			<%} %>
-			<%if(isAdmin) {%>
-			<a href="<%=request.getContextPath()%>/admin/home.jsp">관리메뉴</a>
-			<%} %>
+			<c:choose>
+				<c:when test="${isLogin}">
+					<a href="${pageContext.request.contextPath}">홈으로</a>
+					<a href="${pageContext.request.contextPath}/member/logout">로그아웃</a>
+					<a href="${pageContext.request.contextPath}/member/my">내정보</a>
+					<a href="${pageContext.request.contextPath}/board/list">게시판</a>
+				</c:when>
+				<c:otherwise>
+					<a href="${pageContext.request.contextPath}">홈으로</a>
+					<a href="${pageContext.request.contextPath}/member/join">회원가입</a>
+					<a href="${pageContext.request.contextPath}/member/login">로그인</a>
+					<a href="${pageContext.request.contextPath}/board/list">게시판</a>
+				</c:otherwise>
+			</c:choose>
+			
+			<c:if test="${isAdmin}">
+				<a href="${pageContext.request.contextPath}/admin/home">관리메뉴</a>
+			</c:if>
 		</nav>
 		<section>
