@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	이 설정파일은 Spring의 핵심 서블릿인 DispatcherServlet이 참고할 작업 지시 설정입니다.
+	DispatcherServlet은 여기에 작성된 내용들을 토대로 작동합니다.
+	DispatcherServlet이 알아야 할 내용들을 이곳에 작성합니다.
+	
+	xmlns 에 작성할 태그의 정보를 알려줘야 하는데... 지금처럼 정보가 여러 개인 경우가 있습니다
+	별도의 별칭을 부여해서 태그를 구분하여 등록하게 되는데 딱 1개는 별칭 생략이 가능합니다.
+	
+	- mvc는 별도의 별칭 없이 사용
+	- beans는 태그 앞에 beans: 라고 표시해서 사용
+	- context는 태그 앞에 context: 라고 표시해서 사용
+	- 언제든지 바꿀 수 있기 때문에 절대적인 개념이 아님
+ -->
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- 
+		DispatcherServlet 이 알아야 하므로 이 곳에 "등록" 시킨다.
+		Spring에서는 등록 시킬 수 있는 도구(객체)를 Spring Bean 이라고 부른다.
+	 -->
+	 
+	<!-- 
+		/hello 라는 주소로 접속하면 HelloController한테 일을 시켜라!
+	 -->
+	<beans:bean name="/hello" class="com.kh.spring04.HelloController"></beans:bean>
+	
+</beans:beans>

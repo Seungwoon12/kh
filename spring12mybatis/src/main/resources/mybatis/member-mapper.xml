@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	이 파일은 데이터베이스 SQL구문을 보관해두는 파일이다.
+	이를 mapper(매퍼) 파일이라고 부른다.
+	
+	mapper 파일은 테이블당 1개씩 만드는 것을 원칙으로 하며, 여러 개 있을 수 있다.
+	mapper 파일간 충돌을 방지하기 위해 별칭(namespace)을 부여하도록 강제한다.  
+-->
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+<mapper namespace="member">
+
+	<!-- 
+		- id : 외부에서 구문을 호출하기 위한 이름(식별자)
+		- parameterType : 
+				외부에서 전달되는 데이터의 자료형
+				전체 경로를 다 작성해야 하며, 별칭을 주고 싶은 경우 mybatis 설정파일에 typeAlias 부여
+		- resultType : 
+				구문을 실행한 뒤에 반환해야할 결과물의 형태를 의미하며 select에만 작성할 수 있다		
+		
+		myBatis에서는 데이터를 배치하기 위해 다음과 같은 형태의 식을 제공
+		1. #{이름} : 전달된 데이터에서 해당하는 이름의 값을 자료형에 알맞게 동적으로 배치
+		2. ${이름} : 전달된 데이터에서 해당하는 이름의 값을 어떠한 처리도 없이 정적으로 배치
+	 -->
+	
+	<insert id="join" parameterType="memberDto">
+		insert into member values(
+			member_seq.nextval, 
+			#{member_id},  #{member_pw},	#{member_nick},	#{member_birth},
+			'일반', 0, sysdate
+		)
+	</insert>
+	
+	<update id="edit" parameterType="memberDto">
+		update member
+			set 
+				member_nick=#{member_nick} , member_birth=#{member_birth}
+			where
+				member_no=#{member_no} and member_pw=#{member_pw}
+	</update>
+	
+	<delete id="drop" parameterType="int">
+		delete member where member_no=#{member_no}
+	</delete>
+	
+	<!-- 
+		전체 조회
+		= select를 수행하면 List<????> 가 나온다. 
+		= 단일조회든 목록조회든 전부다 ???? 부분을 알려줘야 한다. 즉, DTO를 적어준다
+		= Spring JDBC에서 만들었던 RowMapper나 ResultSetExtractor는 필요없이 자동으로 변환된다
+	-->
+	<select id="list" resultType="memberDto">
+		select * from member order by member_id asc
+	</select>
+	
+	<!-- 
+		단일 조회
+	 -->
+	<select id="find" resultType="memberDto" parameterType="int">
+		select * from member where member_no = #{member_no}
+	</select>
+	
+	<!-- 
+		검색 : 분류(type)과 검색어(key)를 이용한 검색
+			= $를 이용하여 정적바인딩 하면 값이 있는 그대로 들어간다
+			= #을 이용하여 동적바인딩 하면 값이 형태를 고려하여 들어간다
+	-->
+	<select id="search" resultType="memberDto" parameterType="map">
+		select * from member 
+			where instr(${type}, #{key}) > 0 
+			order by member_id asc
+	</select>
+	
+	<select id="search2" resultType="memberDto" parameterType="map">
+		select * from member
+			where ${type} like '%'||#{key}||'%'
+			order by member_id asc
+	</select>
+	
+	<!-- 
+		복합 검색
+	 -->
+	<select id="complexSearch" resultType="memberDto" parameterType="map">
+		select * from member
+			<!-- 조건절 태그 : 내부에 성립하는 내용이 있으면 자동으로 조건절인 where가 생성 -->
+			<where>
+				<!-- 번호가 있을 경우 번호에 대한 조건을 추가 -->
+				<if test="member_no != null">
+					and member_no = #{member_no}
+				</if>
+				<!-- 아이디가 있을 경우 아이디에 대한 조건을 추가 -->
+				<if test="member_id != null and member_id != '' ">
+					and instr(member_id, #{member_id}) > 0
+				</if>		
+				<!-- 닉네임이 있을 경우 닉네임에 대한 조건을 추가 -->
+				<if test="member_nick != null and member_nick != '' ">
+					and instr(member_nick, #{member_nick}) > 0
+				</if>
+				<!-- 생년월일이 있을 경우 생년월일에 대한 조건을 추가 -->
+				<if test="member_birth != null and member_birth != '' ">
+					and member_birth = #{member_birth}
+				</if>
+				<!-- 권한이 있을 경우 권한에 대한 조건을 추가 -->
+				<if test="member_auth != null and member_auth != '' ">
+					and member_auth = #{member_auth}
+				</if>
+				<!-- 
+					포인트가 있을 경우 포인트에 대한 조건을 추가
+					1. 둘다 있는 경우. (ex) 1000~2000 
+					2. 시작값만 있는 경우. (ex) 1000~
+					3. 종료값만 있는 경우. (ex) ~2000
+				-->
+				<if test="member_point_start != null or member_point_end != null">
+					and
+					<choose>
+						<when test="member_point_start != null and member_point_end != null">
+							<!-- 둘다 있으면 -->
+							member_point between #{member_point_start} and #{member_point_end}
+						</when>
+						<when test="member_point_start != null">
+							<!-- 시작값만 있으면 : 부등호는 태그로 인식하므로 태그가 아니라고 표시를 해야 한다 -->
+							<![CDATA[
+							member_point >= #{member_point_start}
+							]]>
+						</when>
+						<otherwise>
+							<!-- 종료값만 있으면 : 부등호는 태그로 인식하므로 태그가 아니라고 표시를 해야 한다 -->
+							<![CDATA[
+							member_point <= #{member_point_end}
+							]]>
+						</otherwise>
+					</choose>
+				</if>
+				
+				<!-- 가입일이 있을 경우 가입일에 대한 조건을 추가 -->
+				<if test="(member_join_start != null and member_join_start != '') or (member_join_end != null and member_join_end != '' )">
+					and
+					<choose>
+						<when test="(member_join_start != null and member_join_start != '') and (member_join_end != null and member_join_end != '' )">
+							<!-- 시작일, 종료일 둘 다 있으면 -->
+							member_join 
+								between 
+								to_date(#{member_join_start} || ' ' || '00:00:00' , 'YYYY-MM-DD HH24:MI:SS') 
+								and 
+								to_date(#{member_join_end} || ' ' || '23:59:59' , 'YYYY-MM-DD HH24:MI:SS')
+						</when>
+						<when test="member_join_start != null and member_join_start != ''">
+							<!-- 시작일만 있으면 -->
+							<![CDATA[
+							member_join >= to_date(#{member_join_start} || ' ' || '00:00:00' , 'YYYY-MM-DD HH24:MI:SS') 
+							]]>
+						</when>
+						<otherwise>
+							<!-- 종료일만 있으면 -->
+							<![CDATA[
+							member_join <= to_date(#{member_join_end} || ' ' || '23:59:59' , 'YYYY-MM-DD HH24:MI:SS')
+							]]>
+						</otherwise>
+					</choose>
+				</if>
+			</where>	
+	</select>
+	
+</mapper>

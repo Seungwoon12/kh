@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+<mapper namespace="memberBoard">
+	
+	<!-- 
+		회원별로 작성한 게시물까지 조회하는 구문을 만들고 싶다.
+		[구문1] 회원을 조회하는 구문
+		[구문2] 회원이 작성한 게시글을 조회하는 구문 
+	-->
+	
+	<select id="complex1" resultType="memberBoardVO">
+		select * from member
+	</select>
+	
+	<select id="complex2" resultType="boardDto" parameterType="String">
+		select * from board where board_writer = #{member_id}
+	</select>
+	
+	<!-- 
+		myBatis에게 모든 형태를 알려주고 알아서 반복해서 List<MemberBoardVO>에 데이터를 채우도록 지시
+		
+		resultMap을 만들어서 형태와 연결될 구문을 알려준다
+		- type : 자료형
+		- id : 별칭(식별자)
+		
+		result에는 어떤 데이터베이스 항목을 어디에 넣을 것인지 설정
+		- column : 데이터베이스 컬럼명
+		- property : 대입할 변수명
+	 -->
+	<resultMap type="memberBoardVO" id="memberBoardMap">
+		
+		<result column="member_no" property="member_no"/>
+		<result column="member_id" property="member_id"/>
+		<result column="member_pw" property="member_pw"/>
+		<result column="member_nick" property="member_nick"/>
+		<result column="member_birth" property="member_birth"/>
+		<result column="member_auth" property="member_auth"/>
+		<result column="member_point" property="member_point"/>
+		<result column="member_join" property="member_join"/>
+		
+		<!-- 
+			boardList는 추가적인 조회를 해야 채울 수 있는 데이터이므로 따로 설정 
+		-->
+		<collection property="boardList"
+						javaType="java.util.List"
+						ofType="boardDto"
+						column="member_id"
+						select="complex2"></collection>
+		
+	</resultMap>
+	
+	<select id="complex3" resultMap="memberBoardMap">
+		select * from member
+	</select>	
+	
+</mapper>
