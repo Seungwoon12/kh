@@ -38,4 +38,18 @@ public class JSPTestController {
 		
 		return "GetCookies";
 	}
+	
+	@GetMapping("/sessionTest")
+	public String getSessionTest() {
+		log.info("getSessionTest()");
+		
+		return "Session";
+	}
+	
+	@GetMapping("/sessionAttributeTest")
+	public String getSessionAttributeTest() {
+		log.info("getSessionAttributeTest()");
+		
+		return "SessionAttribute";
+	}
 }
