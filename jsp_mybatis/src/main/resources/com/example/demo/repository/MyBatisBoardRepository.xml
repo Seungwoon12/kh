@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.example.demo.repository.MyBatisBoardRepository">
+
+	<insert id="create">
+		insert into jspboard ( board_no, title, content, writer )
+		values ( jspboard_seq.nextval, #{title}, #{content}, #{writer} )
+	</insert>
+	
+	<select id="read" resultType="MyBatisBoard">
+		select board_no, title, content, writer, reg_date from jspboard
+		where board_no = #{boardNo}
+	</select>
+	
+	<update id="update">
+		update jspboard set title = #{title}, 
+		content = #{content} where board_no = #{boardNo}
+	</update>
+	
+	<delete id="delete">
+		delete from jspboard where board_no = #{boardNo}
+	</delete>
+	
+	<select id="list" resultType="MyBatisBoard">
+		<![CDATA[
+			select board_no, title, content, writer, reg_date from jspboard
+			where board_no > 0 order by board_no desc
+		]]>
+	</select>
+</mapper>
