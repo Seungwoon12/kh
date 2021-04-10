@@ -11,6 +11,12 @@
 	= request.getContextPath()
 	= /home 형태로 최상위 경로가 구해진다
  -->
+ 
+ <!-- 스프링 레거시에는 ${pageContext.request.contextPath}쓰면 
+	http://localhost:8888/spring07 이런식으로 프로젝트명까지를 의미하는것임
+	그냥 /만 쓰면 http://localhost:8888까지만을 의미함. 
+-->
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="isLogin" value="${not empty check}"></c:set>
 <c:set var="isAdmin" value="${auth == '관리자'}"></c:set>
@@ -20,7 +26,7 @@
 <head>
 <meta charset="UTF-8">
 <title>내가만든 홈페이지</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <style>
 	/* 화면 레이아웃 스타일 */
 	
@@ -64,6 +70,7 @@
 					<a href="${pageContext.request.contextPath}/member/my">내정보</a>
 					<a href="${pageContext.request.contextPath}/board/list">게시판</a>
 				</c:when>
+				
 				<c:otherwise>
 					<a href="${pageContext.request.contextPath}">홈으로</a>
 					<a href="${pageContext.request.contextPath}/member/join">회원가입</a>

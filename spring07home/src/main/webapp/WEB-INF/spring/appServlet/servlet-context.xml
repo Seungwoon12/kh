@@ -7,6 +7,14 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
 	<!-- 
 		컨트롤러를 한땀한땀 등록하려니 손가락이 아프다
 		= 패키지를 지정하고 자동으로 등록될 수 있도록 감시하자! 
@@ -14,6 +22,11 @@
 		= base-package에 작성하는 글자로 시작되는 패키지는 전부다 감시(하위 패키지 포함)
 	-->
 	<context:component-scan base-package="com.kh.spring07"></context:component-scan>
+	
+
+
+
+	
 	
 	<!-- 
 		뷰 리졸버(View Resolver)
@@ -72,6 +85,7 @@
 	 		- configLocation : 설정파일의 경로를 말하며 지정해주면 알아서 스트림열고 불러온다!
 	 		- dataSource : 데이터베이스 연결 방식 설정
 	 		- mapperLocations : 연결시킬 mapper 파일의 패턴을 지정
+	 		cf)**는 mybatis 폴더안에 다른 폴더가 있어도 되고 없어도 되고. *-mapper.xml로 처리하면 모든 테이블명-mapper.xml 파일 처리가능
 	 	2. SqlSession(SqlSessionTemplate) : 실제 데이터베이스 명령을 수행하는 도구
 	 		- SqlSession을 만들기 위해서는 "반드시" SqlSessionFactory 정보가 있어야 한다.
 	 		- "반드시" 들어가야 하는 정보는 생성자를 이용하도록 코드를 구성한다

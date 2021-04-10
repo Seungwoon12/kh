@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	이 파일은 데이터베이스 SQL구문을 보관해두는 파일이다.
+	이를 mapper(매퍼) 파일이라고 부른다.
+	
+	mapper 파일은 테이블당 1개씩 만드는 것을 원칙으로 하며, 여러 개 있을 수 있다.
+	mapper 파일간 충돌을 방지하기 위해 별칭(namespace)을 부여하도록 강제한다.  
+-->
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+<mapper namespace="member">
+
+	<!-- 
+		- id : 외부에서 구문을 호출하기 위한 이름(식별자)
+		- parameterType : 
+				외부에서 전달되는 데이터의 자료형
+				전체 경로를 다 작성해야 하며, 별칭을 주고 싶은 경우 mybatis 설정파일에 typeAlias 부여
+		- resultType : 
+				구문을 실행한 뒤에 반환해야할 결과물의 형태를 의미하며 select에만 작성할 수 있다		
+		
+		myBatis에서는 데이터를 배치하기 위해 다음과 같은 형태의 식을 제공
+		1. #{이름} : 전달된 데이터에서 해당하는 이름의 값을 자료형에 알맞게 동적으로 배치
+		2. ${이름} : 전달된 데이터에서 해당하는 이름의 값을 어떠한 처리도 없이 정적으로 배치
+	 -->
+	
+	<insert id="join" parameterType="MemberDto">
+		insert into member values(
+			member_seq.nextval, 
+			#{member_id},  #{member_pw},	#{member_nick},	#{member_birth},
+			'일반', 0, sysdate
+		)
+	</insert>
+	
+	<update id="edit" parameterType="MemberDto">
+		update member
+			set 
+				member_nick=#{member_nick} , member_birth=#{member_birth}
+			where
+				member_no=#{member_no} and member_pw=#{member_pw}
+	</update>
+	
+	<update id="editPassword" parameterType="map">
+		update member 
+			set member_pw=#{change_pw} 
+			where 
+				member_no=#{member_no} 
+				and 
+				member_pw=#{member_pw}
+	</update>
+	
+	<update id="editByAdmin" parameterType="MemberDto">
+		update member 
+			set 
+				member_nick=#{member_nick}, 
+				member_birth=#{member_birth}, 
+				member_auth=#{member_auth}, 
+				member_point=#{member_point} 
+			where 
+				member_no=#{member_no}
+	</update>
+	
+	<update id="editPasswordByAdmin" parameterType="map">
+		update member 
+			set member_pw=#{member_pw} 
+			where member_no=#{member_no}
+	</update>
+	
+	<delete id="drop" parameterType="int">
+		delete member where member_no=#{member_no}
+	</delete>
+	
+	<!-- 
+		전체 조회
+		= select를 수행하면 List<????> 가 나온다. 
+		= 단일조회든 목록조회든 전부다 ???? 부분을 알려줘야 한다. 즉, DTO를 적어준다
+		= Spring JDBC에서 만들었던 RowMapper나 ResultSetExtractor는 필요없이 자동으로 변환된다
+	-->
+	<select id="list" resultType="MemberDto">
+		select * from member order by member_id asc
+	</select>
+	
+	<!-- 
+		단일 조회
+	 -->
+	<select id="find" resultType="MemberDto" parameterType="int">
+		select * from member where member_no = #{member_no}
+	</select>
+	
+	<select id="find2" resultType="MemberDto" parameterType="String">
+		select * from member where member_id = #{member_id}
+	</select>
+	
+	<!-- 
+		검색 : 분류(type)과 검색어(key)를 이용한 검색
+			= $를 이용하여 정적바인딩 하면 값이 있는 그대로 들어간다
+			= #을 이용하여 동적바인딩 하면 값이 형태를 고려하여 들어간다
+	-->
+	<select id="search" resultType="MemberDto" parameterType="map">
+		select * from member 
+			where instr(${type}, #{key}) > 0 
+			order by member_id asc
+	</select>
+	
+	<select id="search1" resultType="MemberDto" parameterType="String">
+		select * from member 
+			where instr(member_id, #{member_id}) > 0
+			order by member_id asc
+	</select>
+	
+	<select id="search2" resultType="MemberDto" parameterType="map">
+		select * from member
+			where ${type} like '%'||#{keyword}||'%'
+			order by member_id asc
+	</select>
+	
+	<select id="login" resultType="MemberDto" parameterType="MemberDto">
+		select * from member where member_id=#{member_id} and member_pw=#{member_pw}
+	</select>
+	
+	<select id="getPointRank" resultType="MemberRankVO" parameterType="map">
+		select * from (
+			select
+				M.member_no, M.member_point, M.member_id,
+				M.member_nick, M.member_auth, M.member_join,
+				rank() over(order by member_point desc) rank 
+			from member M
+		) 
+		where 
+			rank between #{start} and #{end}
+	</select>
+	
+</mapper>
