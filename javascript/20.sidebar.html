@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .all-in-one {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            z-index: 99999999999;
+        }
+        .sidebar {
+            z-index: 999999999;
+            background-color:yellow;
+            position:fixed;
+            left:0;
+            top:0;
+            bottom:0;
+            width:200px;
+            margin-left: -200px;
+            /* 
+                transition은 애니메이션 처리를 수행 
+                - 스르륵~ 대신 알려줘야 하는 정보
+                - 속도(진행시간)
+                - 변화하는 값이 무엇인지
+                - 변화하는 방식(타이밍함수)
+                    - 스~르~륵 : linear
+                    - 스~~~르륵 :ease-in
+                    - 스르~~~~륵 : ease-out
+                    - 스~르~~~르~륵 : ease-in-out
+            */
+            transition:margin-left 0.3s ease-in-out;
+        }
+        .sidebar.active {
+            margin-left:0px;
+        }
+    </style>
+    <script>
+        function slideRight(){
+            var sidebar = document.querySelector(".sidebar");
+            sidebar.classList.add("active");
+        }
+        function slideLeft(){
+            var sidebar = document.querySelector(".sidebar");
+            sidebar.classList.remove("active");
+        }
+        function slideToggle(){
+            //if(sidebar에 active class가 있으면){
+            var sidebar = document.querySelector(".sidebar");
+            if(sidebar.classList.contains("active")){
+                slideLeft();
+            }
+            else{
+                slideRight();
+            }
+        }
+    </script>
+</head>
+<body>
+    <button class="all-in-one" onclick="slideToggle();">올인원</button>
+
+    <button onclick="slideRight();">표시</button>
+
+    <div class="sidebar">
+        <button onclick="slideLeft();">숨김</button>
+    </div>
+</body>
+</html>

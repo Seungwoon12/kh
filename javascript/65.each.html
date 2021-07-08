@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+
+            //jquery는 기본적으로 "일괄 처리"에 특화되어 있다.
+            //$("h1").css("color", "red");
+
+            //jquery를 사용하면서 "일괄 처리"를 안하고 싶은 경우에는?
+            //- eq, first, last 등으로도 가능하긴 하지만 다른 방법은?
+            //- jquery 용 반복문으로 이 문제를 해결한다
+            //- break 대신 return false 사용
+
+            //방법1 : 선택자 이후에 each 사용
+            // $("h1").each(function(index, element){
+            //     console.log(index);//반복수
+            //     console.log(element);//요소(tag)
+            //     console.log(this);//주인공 == element
+
+            //     if(index % 2 == 0){
+            //         $(element).css("color", "red");
+            //         //$(this).css("color", "red");
+            //     }
+            //     else{
+            //         $(element).css("color", "red");
+            //         //$(this).css("color", "blue");
+            //     }
+            // });
+
+            //방법2 : jquery 기본명령 사용
+            $.each($("h1"), function(index, element){
+                if(index % 2 == 0){
+                    $(this).css("color", "red");
+                    //return false;//break효과
+                }
+                else{
+                    $(this).css("color", "blue");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Hello jQuery!</h1>
+    <h1>Hello jQuery!</h1>
+    <h1>Hello jQuery!</h1>
+    <h1>Hello jQuery!</h1>
+    <h1>Hello jQuery!</h1>
+</body>
+</html>

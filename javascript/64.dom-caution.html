@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //삭제 버튼을 누르면 해당 줄을 삭제
+            // = 이 시점에서 선택되는 삭제버튼은 초기에 만들어둔 3개만 선택
+            // = 즉, 추가되는 버튼에는 이벤트가 적용되지 않는다.
+            // = 이벤트를 추가하는 방식을 동적으로 변경한다.
+            // $(범위선택자).on("이벤트종류", "적용대상", 코드);
+
+            //현재 존재하는 태그를 선택해서 이벤트 설정하는 정적 이벤트 추가
+            //$(".delete-btn").on("click", function(){});
+
+            //범위를 설정해두고 현재와 미래를 포함한 모든 대상에게 동적 이벤트를 추가
+            $(".box").on("click", ".delete-btn", function(){
+                $(this).parent().remove();
+            });
+
+            //추가 버튼을 누르면 템플릿을 불러와서 문서에 첨부
+            $(".add-btn").click(function(){
+                var template = $("#row-template").html();
+                $(template).insertBefore(this);
+            });
+        });
+    </script>
+
+    <!-- 템플릿 구현 -->
+    <script id="row-template" type="text/template">
+        <div class="row">
+            <input type="text">
+            <button class="delete-btn">삭제</button>
+        </div>
+    </script>
+</head>
+<body>
+    <!--
+        보통 일반적으로 DOM을 추가하거나 삭제하는 화면을 만들면
+        대개 3~5개 정도를 배치해두고 추가 또는 삭제가 가능하도록 만든다
+    -->
+    <div class="box">
+        <div class="row">
+            <input type="text">
+            <button class="delete-btn">삭제</button>
+        </div>
+        <div class="row">
+            <input type="text">
+            <button class="delete-btn">삭제</button>
+        </div>
+        <div class="row">
+            <input type="text">
+            <button class="delete-btn">삭제</button>
+        </div>
+
+        <button class="add-btn">추가</button>
+    </div>
+</body>
+</html>

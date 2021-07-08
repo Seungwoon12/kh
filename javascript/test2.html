@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $("table > tbody tr").click(function(){
+                var td1 = $(this).children().eq(0).text();
+                $("#td1").text(td1);
+                
+                var td2 = $(this).children().eq(1).text();
+                $("#td2").text(td2);
+
+                var td3 = $(this).children().eq(2).text();
+                $("#td3").text(td3);
+            });
+        });
+    </script>
+</head>
+<body>
+    <table class="table table-border">
+        <thead>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>첫 번째 게시물 입니다</td>
+                <td>홍길동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>두 번째 게시물 입니다</td>
+                <td>홍길동</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>세 번째 게시물 입니다</td>
+                <td>홍길동</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div>
+        <span>
+            선택한 게시물: <span id="td1"></span> / <span id="td2"></span> / <span id="td3"></span>
+        </span>
+    </div>
+</body>
+</html>

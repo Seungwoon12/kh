@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .outbox{
+            width:300px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //버튼을 누르면 항목을 생성
+            $("#create-button").click(function(){
+                var template = $("#vote-template").html();
+                $(template).appendTo(".outbox");
+            });
+        });
+    </script>
+
+    <!-- 
+        script 태그는 type이 text/javascript일 때만 실행된다
+        이 특징을 공격적으로 이용해서 "템플릿"을 만들어 보관하는 용도로 사용
+    -->
+    <script id="vote-template" type="text/template">
+        <div class="row">
+            <input type="text" name="content" class="input" placeholder="항목을 입력하세요">
+        </div>
+    </script>
+
+</head>
+<body>
+    <!-- 기본 화면 구현 : 제목창 1개 , 항목창 3개 -->
+    <div class="outbox">
+        <div class="row">투표 제목</div>
+        <div class="row">
+            <input type="text" name="title" class="input" placeholder="제목을 입력하세요">
+        </div>
+        <div class="row">투표 항목</div>
+        <div class="row">
+            <input type="text" name="content" class="input" placeholder="항목을 입력하세요">
+        </div>
+        <div class="row">
+            <input type="text" name="content" class="input" placeholder="항목을 입력하세요">
+        </div>
+        <div class="row">
+            <input type="text" name="content" class="input" placeholder="항목을 입력하세요">
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="button" id="create-button" class="input input-inline" value="+ 항목 추가">
+    </div>
+</body>
+</html>

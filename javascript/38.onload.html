@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 독립 모듈화</title>
+    <script>
+        //자바에서 main메소드같은 역할을 window.onload가 수행한다
+        window.onload = function () {
+            var button = document.querySelector("button"); //선택 가능
+            console.log(button);
+
+            //버튼을 클릭하면 어떻게 할것인지 설정
+            //자바였다면 : button.addActionListener(처리객체);
+            //자바스크립트라면 : button.addEventListener("이벤트종류", 처리코드함수);
+
+            button.addEventListener("click", function(){
+                alert("테스트");
+            }); //버튼 클릭하면 test함수 실행하세요
+
+
+        };
+    </script>
+</head>
+
+<body>
+    <!-- 인라인 자바스크립트 : 최악. 여러줄 쓰기도 힘들고 알아보기도 힘들고 이래저래 힘들다 -->
+    <!-- <button onclick="alert('테스트');">클릭</button> -->
+
+    <!-- 함수 호출 : 인라인 자바스크립트보단 낫지만 여전히 의존성이 발생 -->
+    <!-- <button onclick="test();">클릭</button> -->
+
+    <button>클릭</button>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식(Regular Expression)</title>
+    <script>
+        function checkBirth(){
+            //미리 만들어둔 전화번호 검사식으로 전화번호 입력값을 검사하도록 구현
+            //- 준비물 : 검사식(regex), 입력태그(input), 출력태그(span)
+            //- 정규표현식 검사명령 : regex.test() --> boolean
+
+            //정규표현식은 만들 때 슬래시(/) 로 감싸서 만든다
+            //var regex = /^01[016789]-[123456789][0123456789][0123456789][0123456789]-[0123456789][0123456789][0123456789][0123456789]$/;
+            //var regex = /^01[016-9]-[1-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$/;
+            //var regex = /^01[016-9]-[1-9][0-9]{3}-[0-9]{4}$/;//빼기가 무조건 있어야 하는 경우
+            //var regex = /^01[016-9][1-9][0-9]{3}[0-9]{4}$/;//빼기가 무조건 없어야 하는 경우
+            //var regex = /^01[016-9]-?[1-9][0-9]{3}-?[0-9]{4}$/;//빼기가 있어도 되고 없어도 되는 경우
+            var regex = /^((^01[016-9][1-9][0-9]{3}[0-9]{4}$)|(^01[016-9]-[1-9][0-9]{3}-[0-9]{4}$))$/;//빼기가 아예없거나 둘다있는경우
+
+            var phoneInput = document.querySelector("input[name=phone]");
+            var phoneSpan = document.querySelector("input[name=phone] + span");
+
+            //if(올바른 전화번호라면){
+            //if(regex으로 입력값을 검사한 결과가 참이라면){
+            if(regex.test(phoneInput.value)){
+                phoneSpan.textContent = "올바른 전화번호 형식입니다";
+            }
+            else{
+                phoneSpan.textContent = "잘못된 전화번호 형식입니다";
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--
+        정규표현식(REGEX)이란 "문자열 검사식"이다.
+        - 일일이 문자열을 검사하기에는 에너지 낭비가 너무 심하다.
+        - ex : 8~20자 이내이며, 영문 소문자와 숫자로만 구성된 아이디
+        - https://regexper.com
+    -->
+
+    <input type="text" name="phone" placeholder="전화번호" oninput="checkBirth();">
+    <span></span>
+</body>
+</html>

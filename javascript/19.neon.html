@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .highlight{
+            box-shadow: 0px 0px 10px 3px #FD1C03;
+        }
+    </style>
+    <script>
+        function addLight(){
+            var tag = document.querySelector(".target");
+            //tag.className = "highlight";//클래스 전체 변경(기존 클래스가 제거됨, 비추천)
+            tag.classList.add("highlight");//클래스에 추가(기존 클래스가 유지됨)
+        }
+        function removeLight(){
+            var tag = document.querySelector(".target");
+            tag.classList.remove("highlight");
+        }
+
+        function circle(){
+            var tag = document.querySelector(".img");
+            tag.classList.add("img-circle");
+        }
+        function leaf(){
+            var tag = document.querySelector(".img");
+            tag.classList.add("img-leaf");
+        }
+        function addClear(){
+            var tag = document.querySelector(".img");
+            tag.classList.add("img-clear");
+        }
+    </script>
+</head>
+<body>
+    <!--
+        input[type=button]은 이미지 설정이 불가
+        button은 이미지 설정이 가능
+        (주의) form 안에 button을 만들면 submit 효과가 발생
+    -->
+    <!-- <input type="button" value="on"> -->
+    <button onclick="addLight();">on</button>
+    <button onclick="removeLight();">off</button>
+    <button onclick="addClear();">clear</button>
+    <button onclick="leaf();">leaf</button>
+    <button onclick="circle();">circle</button>
+    <hr>
+    <img src="https://placehold.it/200x200" class="target img">
+</body>
+</html>

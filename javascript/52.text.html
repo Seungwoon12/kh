@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //.a에 입력된 글자를 .b에는 text로 , .c에는 html로 복사하여 설정
+            $(".a").on("input", function(){
+                //var v = document.querySelector(".a").value;//VanillaJS
+                //var v = this.value;//VanillaJS
+                //var v = $(".a").val();//jquery
+                var v = $(this).val();//jquery
+                //console.log(v);
+
+                $(".b").text(v);//JS에서는 textContent
+                $(".c").html(v);//JS에서는 innerHTML
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" class="a">
+    <div class="b"></div>
+    <div class="c"></div>
+</body>
+</html>

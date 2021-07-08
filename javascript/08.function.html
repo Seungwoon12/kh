@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의 활용</title>
+    <script>
+        //자바스크립트는 최종 목표가 HTML 태그와 연계하는 것이다.
+        //이를 위해 함수를 만들고, HTML태그의 특정 상황에서 실행되도록 만든다
+        //- onclick : 클릭했을 때
+        //- oninput : 입력했을 때
+        //- onload : 로딩이 완료되었을 때
+        function test(){
+            //class가 input인 태그 한 개를 선택하는 구문
+            var tag = document.querySelector(".target");
+            
+            //tag라는 변수를 통해 대상 태그의 속성을 추가 또는 수정
+            //대상의 모든 정보에 접근할 수 있다.
+
+            tag.placeholder = "안녕";
+            //tag.value = "하이";
+            //tag.type = "date";
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="눌러" onclick="test();">
+    <input type="text" class="target">
+</body>
+</html>

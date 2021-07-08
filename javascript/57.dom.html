@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //목표 : 버튼을 누르면 1,2,3,4,5의 글자색을 변경
+
+            $("button").click(function(){
+                //this : 버튼
+
+                //1번 : 상위 태그의 이전 태그
+                $(this).parent().prev().css("color", "green");
+
+                //2번 : 버튼 이전 태그
+                $(this).prev().css("color", "blue");
+
+                //3번 : 버튼 다음 태그
+                $(this).next().css("color", "red");
+
+                //4번 : 상위 태그의 상위 태그의 다음 태그의 자식 태그
+                //$(this).parent().parent().next().children().eq(0).css("color", "pink");
+                $(this).parent().parent().next().children().first().css("color", "pink");
+
+                //5번
+                //$(this).parent().parent().next().children().eq(1).css("color", "pink");
+                $(this).parent().parent().next().children().last().css("color", "pink");
+
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <h1>테이블 DOM 탐색</h1>
+    <table class="table table-border">
+        <tbody>
+            <tr>
+                <th>1</th>
+                <th>
+                    <span>2</span>
+                    <button>버튼</button>
+                    <span>3</span>
+                </th>
+            </tr>
+            <tr>
+                <th>4</th>
+                <th>5</th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

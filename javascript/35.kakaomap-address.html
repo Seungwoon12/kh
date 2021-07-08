@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>주소로 장소 표시하기</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f822dd624ee1a8b07e90bf7d06c4cb8&libraries=services"></script>
+    <script>
+        function kakaomap(){
+            ///////////////////////////////////////////////////////////////////////
+            // 지도를 생성하는 코드
+            ///////////////////////////////////////////////////////////////////////
+            var mapContainer = document.getElementById('map'), 
+                mapOption = {
+                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                    level: 3 
+                };  
+
+           
+            var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+            ///////////////////////////////////////////////////////////////////////
+            // 주소를 검색하여 지도를 표시하는 코드
+            ///////////////////////////////////////////////////////////////////////
+
+            // 주소-좌표 변환 객체를 생성합니다
+            // - 지도 관련 프로그램에서 Geocoding이라고 하면 주소와 위치에 대한 변환 등의 처리 기술을 말한다.
+            // - 업체마다 자신들이 데이터베이스에 가지고 있는 정보를 이용해서 변환한 결과를 알려준다.
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            // 주소로 좌표를 검색합니다
+            // = geocoder.addressSearch(주소, 처리코드);
+            // = geocoder.addressSearch(주소, 함수);
+            // = 주소를 알려줄테니 검색하고나면 함수에 정보를 넣어서 실행시켜주세요(콜백함수,예약함수)
+            // = 외부의 함수 명을 알려줘도 되지만 함수를 넣어도 된다.
+            // = 함수를 집어넣을 때는 이름이 굳이 필요하지 않기 때문에 삭제한 뒤 추가(익명함수,일회용함수)
+            geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status){
+                // 정상적으로 검색이 완료됐으면 
+                if (status === kakao.maps.services.Status.OK) {
+                    //좌표를 얻어내세요
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">주소</div>'
+                    });
+                    infowindow.open(map, marker);
+
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords);
+                } 
+            });    
+        }
+    </script>
+</head>
+<body onload="kakaomap();">
+
+    <div id="map" style="width:100%;height:350px;"></div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여러 개의 입력창 읽기</title>
+    <script>
+        //목표 : 폼이 전송될 때 항목이 제대로 입력되어 있는지 검사(정규표현식 or 글자수 or ...)
+        //- 제목 : document.querySelector("input[name=title]")
+        //- 항목 : document.querySelectorAll("input[name=option]")
+
+        function formCheck(){
+            //입력창을 검사
+            var regex = /^[가-힣]{2,30}$/;
+
+            var titleInput = document.querySelector("input[name=title]");
+
+            //if(제목이 2~30글자 사이의 한글이 아니라면){
+            if(!regex.test(titleInput.value)){
+                alert("제목은 한글 2~30자로 작성하세요!");
+                return false;
+            }
+
+            //항목은 여러개이기 때문에 전부다 불러오는 명령을 써야 한다.
+            var optionInput = document.querySelectorAll("input[name=option]");
+            //console.log(optionInput);
+
+            //optionInput은 배열이기 때문에 일괄처리하려면 반복문이 나와야 한다
+            for(var i=0; i < optionInput.length; i++){
+                //if(내용이 2~30글자 사이의 한글이 아니라면){
+                if(regex.test(optionInput[i].value) == false){
+                    alert("항목은 한글 2~30자로 작성하세요!");
+                    return false;
+                }
+            }
+
+            return true;//전송해라!
+            //return false;//전송하지 마라!
+        }
+    </script>
+</head>
+<body>
+    <!--
+        form의 전송에 관련된 이벤트는 onsubmit으로 설정하는데 
+        ** form은 따로 이벤트를 설정하지 않아도 전송되도록 만들어져 있기 때문에 **
+        return 값의 true/false를 설정하여 전송을 할지말지 선택이 가능(기본이벤트를 막을지 허용할지)
+        
+        = a 태그와 form 태그가 여기에 해당
+        = 이동이나 데이터 전송 전에 무엇인가 작업을 추가하는 경우 사용(검사 등)
+    -->
+
+    <!-- return formCheck(); 로 적으면 formCheck()가 true를 반환할 때만 전송하겠다는 뜻 -->
+    <form onsubmit="return formCheck();">
+        <h5>제목</h5>
+        <input type="text" name="title" placeholder="제목을 입력하세요" required>
+        <hr>
+        <h6>항목</h6>
+        <input type="text" name="option" placeholder="항목을 입력하세요" required><br>
+        <input type="text" name="option" placeholder="항목을 입력하세요" required><br>
+        <input type="text" name="option" placeholder="항목을 입력하세요" required><br>
+        <hr>
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>

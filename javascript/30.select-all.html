@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체선택</title>
+    <script>
+        function checkAll(){
+            document.querySelector("#a").checked = true;
+            document.querySelector("#b").checked = true;
+            document.querySelector("#c").checked = true;
+            document.querySelector("#d").checked = true;
+        }
+        function uncheckAll(){
+            document.querySelector("#a").checked = false;
+            document.querySelector("#b").checked = false;
+            document.querySelector("#c").checked = false;
+            document.querySelector("#d").checked = false;
+        }
+        //전체선택 체크박스의 선택여부를 확인하여 각 항목에 적용
+        function selectAll(){
+            var ck = document.querySelector("#all");
+
+            document.querySelector("#a").checked = ck.checked;
+            document.querySelector("#b").checked = ck.checked;
+            document.querySelector("#c").checked = ck.checked;
+            document.querySelector("#d").checked = ck.checked;
+        }
+
+        function selectAllArray(){
+            var ck = document.querySelector("#all");
+
+            //1. 클래스로 선택
+            //var items = document.querySelectorAll(".select-item");
+            //2. 전체에서 제외시킨 뒤 선택 (not 연산)
+            var items = document.querySelectorAll("input[type=checkbox]:not(#all)");
+            for(var i=0; i < items.length; i++){
+                items[i].checked = ck.checked;
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="checkAll();">전체체크</button>
+    <button onclick="uncheckAll();">전체해제</button>
+    <input type="checkbox" id="all" oninput="selectAllArray();"> 전체선택
+    <hr>
+    <input type="checkbox" class="select-item" id="a"> 포도
+    <input type="checkbox" class="select-item" id="b"> 바나나
+    <input type="checkbox" class="select-item" id="c"> 딸기
+    <input type="checkbox" class="select-item" id="d"> 사과
+</body>
+</html>

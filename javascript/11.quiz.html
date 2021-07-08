@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 확대 축소 프로그램</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <script>
+        //확대 함수
+        function increase(){
+            //console.log("increase");
+            var img = document.querySelector("#custom-image");
+            
+            //typeof라는 명령으로 데이터의 유형을 파악할 수 있다.
+            //- 자바스크립트에서는 number, boolean, string, object, function 등으로 형태를 구분한다
+            console.log(typeof img.width);//img.width 의 값은 number 형태로 자바스크립트에서 관리된다.
+            
+            img.width += 30;
+            img.height += 30;
+
+            //늘어나는건 450초과해선 안된다
+            if(img.width > 450){
+                img.width = 450;
+            }
+            if(img.height > 450){
+                img.height = 450;
+            }
+
+        }
+
+        //축소 함수
+        function decrease(){
+            //console.log("decrease");
+            var img = document.querySelector("#custom-image");
+            
+            img.width -= 30;
+            img.height -= 30;
+
+            //줄어드는건 90미만이면 안된다
+            if(img.width < 90){
+                img.width = 90;
+            }
+            if(img.height < 90){
+                img.height = 90;
+            }
+        }
+
+        function allInOne(size){
+            var img = document.querySelector("#custom-image");
+
+            img.width += size;
+            img.height += size;
+
+            //늘어나는건 450초과해선 안된다
+            if(img.width > 450){
+                img.width = 450;
+            }
+            if(img.height > 450){
+                img.height = 450;
+            }
+            //줄어드는건 90미만이면 안된다
+            if(img.width < 90){
+                img.width = 90;
+            }
+            if(img.height < 90){
+                img.height = 90;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="확대" onclick="increase();">
+    <input type="button" value="축소" onclick="decrease();">
+    <input type="button" value="확대" onclick="allInOne(30);">
+    <input type="button" value="축소" onclick="allInOne(-30);">
+    <hr>
+    <img alt="실습용 이미지" src="https://placeimg.com/200/200/any" id="custom-image"
+                                                                        width="200" height="200">
+</body>
+</html>

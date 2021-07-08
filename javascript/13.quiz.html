@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 문제</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .outbox {
+            width:400px;
+        }
+    </style>
+    <script>
+        //아이디 검사 함수
+        function checkId(){
+            var idInput = document.querySelector("input[name=id]");
+            var idSpan = document.querySelector("input[name=id] + span");
+
+            //idSpan.textContent = idInput.value.length;
+            //if(8자이상 20자이내라면){
+            if(idInput.value.length >= 8 && idInput.value.length <= 20){
+                idSpan.textContent = "올바른 아이디 형식입니다";
+            }
+            else{
+                idSpan.textContent = "아이디는 8글자 이상 20자 이내로 작성해주세요";
+            }
+        }
+
+        //비밀번호 검사 함수
+        function checkPw(){
+            var pwInput = document.querySelector("input[name=pw]");
+            var pwSpan = document.querySelector("input[name=pw] + span");
+
+            var pw = pwInput.value;
+            if(pw.length >= 8 && pw.length <= 20){
+                pwSpan.textContent = "올바른 비밀번호 형식입니다";
+            }
+            else{
+                pwSpan.textContent = "비밀번호는 8~16자 이내로 작성하세요!";
+            }
+        }
+        
+        //비밀번호 재확인 함수
+        function checkPw2(){
+            var pwInput = document.querySelector("input[name=pw]");
+            var pw2Input = document.querySelector("input[name=pw2]");
+            var pw2Span = document.querySelector("input[name=pw2] + span");
+
+            //if(비밀번호가 한글자라도 있는 상태에서 비밀번호와 비밀번호 재확인의 값이 같다면){
+            //if(pwInput.value.length > 0 && pwInput.value === pw2Input.value){
+            if(pwInput.value && pwInput.value === pw2Input.value){
+                pw2Span.textContent = "비밀번호가 일치합니다";
+            }
+            else{
+                pw2Span.textContent = "비밀번호가 일치하지 않습니다";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!--
+        oninput : 입력 발생시
+        onchange : 입력값의 변화 발생시
+        onblur : 입력창에서 다른 입력창으로 이동 시(focus-out)
+    -->
+
+    <form action="" method="post">
+        <div class="outbox">
+            <div class="row center">
+                <h1>회원가입</h1>
+            </div>        
+            <div class="row">
+                <!-- <input type="text" class="input" name="id" placeholder="아이디" oninput="checkId();"> -->
+                <input type="text" class="input" name="id" placeholder="아이디" onblur="checkId();">
+                <span></span>
+            </div>        
+            <div class="row">
+                <input type="text" class="input" name="pw" placeholder="비밀번호" onblur="checkPw();">
+                <span></span>
+            </div>        
+            <div class="row">
+                <input type="text" class="input" name="pw2" placeholder="비밀번호 확인" onblur="checkPw2();">
+                <span></span>
+            </div>  
+            <div class="row">
+                <input type="submit" class="input" value="가입하기">
+            </div>      
+        </div>
+    </form>
+</body>
+</html>

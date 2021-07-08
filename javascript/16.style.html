@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트에서 스타일 제어</title>
+    <script>
+        //색상이 선택되면 해당하는 색상으로 글자색을 변경
+        function changeColor(){
+            var colorInput = document.querySelector("select[name=color]");
+            //console.log(colorInput.value);
+
+            var target = document.querySelector(".target");
+            //colorInput.value에 들어있는 색상으로 target의 "글자색상"을 변경
+            //target.style = "color:blue;";
+            //target.style = "color:"+colorInput.value;
+            target.style.color = colorInput.value;
+        }
+    </script>
+</head>
+<body>
+    <!--
+        스타일 CSS의 영역이지만 자바스크립트에서도 CSS 제어가 가능하다.
+        심도있게 제어하기보다 간단한 스타일링을 구현하는 것에 초점
+    -->
+
+    <select name="color" oninput="changeColor();">
+        <option>red</option>
+        <option>green</option>
+        <option>blue</option>
+    </select>
+
+    <p class="target">
+        Hello Javascript!
+    </p>
+
+</body>
+</html>

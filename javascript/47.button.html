@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script script="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //규칙 : jquery는 시작할 때 $로 시작하며 뒤에 ()를 쓰면 무언가를 "선택"하겠다는 뜻이다.
+            // - 개수 상관없이 해당되는 태그를 전부다 선택한다.
+            // - 선택한 뒤에 원하는 작업에 대한 명령을 작성하며, 이벤트와 관련된 명령은 다음과 같다.
+            // - .on() : 이벤트 설정   /  .off() : 이벤트 해제
+            // - 주요 이벤트에는 축약명령이 존재(on 대신 사용) : input이 없음
+
+            //$("button").on("click", function(){
+            $("button").click(function(){
+                alert("잘했어!");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>클릭!</button>
+</body>
+</html>

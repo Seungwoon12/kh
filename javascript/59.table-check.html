@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        /* tr 태그에 active라는 클래스가 있다면 아래 스타일을 적용시키겠다 */
+        .table tr.active {
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //[1] 스타일 제어
+            // $(".select-item").change(function(){
+            //     //this : checkbox
+            //     //if($(this).is(":checked")){
+            //     if($(this).prop("checked")){
+            //         //$(this).parent().parent().css("background-color", "yellow");//안정적
+            //         $(this).parents("tr").css("background-color", "yellow");//위험
+            //     }
+            //     else{
+            //         //$(this).parent().parent().css("background-color", "transparent");//안정적
+            //         $(this).parents("tr").css("background-color", "transparent");//위험
+            //     }
+            // });
+
+            //[2] 클래스 추가/제거
+            $(".select-item").change(function(){
+                //$(this).parent().parent().toggleClass("active");//위험
+                //$(this).parents("tr").toggleClass("active");//왕위험
+                //if($(this).parents("tr").hasClass("active")){//위험한 조건
+                if($(this).prop("checked")){//합리적인 조건
+                    $(this).parents("tr").addClass("active");
+                }
+                else{
+                    $(this).parents("tr").removeClass("active");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>테이블 줄 선택</h1>
+    <table class="table table-border">
+        <thead>
+            <tr>
+                <th></th>
+                <th>순위</th>
+                <th>제목</th>
+                <th>가수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" class="select-item">
+                </td>
+                <td>1</td>
+                <td>노래제목 테스트1</td>
+                <td>가수 테스트1</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="select-item">
+                </td>
+                <td>2</td>
+                <td>노래제목 테스트2</td>
+                <td>가수 테스트2</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="select-item">
+                </td>
+                <td>3</td>
+                <td>노래제목 테스트3</td>
+                <td>가수 테스트3</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="select-item">
+                </td>
+                <td>4</td>
+                <td>노래제목 테스트4</td>
+                <td>가수 테스트4</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="select-item">
+                </td>
+                <td>5</td>
+                <td>노래제목 테스트5</td>
+                <td>가수 테스트5</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

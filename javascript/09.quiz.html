@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>값 복사 프로그램</title>
+    <script>
+        //복사 함수
+        //2개의 태그를 각각 불러온다
+        function copy(){
+            var a = document.querySelector(".a");
+            var b = document.querySelector(".b");
+            b.value = a.value;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" class="a"><br><br>
+    <input type="text" class="b"><br><br>
+    <input type="button" value="글자 복사" onclick="copy();">
+</body>
+</html>

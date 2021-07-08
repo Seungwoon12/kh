@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 함수</title>
+    <script>
+        /*
+            함수(function)
+            - 혼자 덩그러니 놓여진 메소드
+            메소드(method)
+            - 어딘가에 포함된 함수
+            둘 다 코드를 보관하고 원할 때 실행할 수 있는 영역
+            1. 자바스크립트는 접근제한 키워드가 없다(private/public)
+            2. 자바스크립트는 자료형을 따로 구분하지 않는다
+                - 반환형이 필요가 없다(void/int/String/...)
+            3. 매개변수도 형태가 작성될 필요가 없다
+            4. 매개변수와 상관없이 호출이 가능하고 오버로딩이 불가능
+                - 같은 이름의 함수를 만들 생각을 하면 안된다
+        */
+        function test(a, b){//데이터를 2개 받는 함수
+            console.log("a = " + a);
+            console.log("b = " + b);
+        }
+
+        test(10);
+        test(10, 20);
+        test(10, 20, 30);
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

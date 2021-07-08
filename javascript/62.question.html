@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //입력제한을 거는 2가지 방법
+            //- keypress : 키를 눌렀을 때 완료되기 바로 전 이벤트(기본이벤트 방지, 기능키 감지가능)
+            //- keydown : 키를 눌렀을 때 발생하는 이벤트(유니코드 감지가능, 기능키 감지불가)
+            //- keyup : 키를 떼었을 때 발생하는 이벤트(유니코드 감지가능, 기능키 감지불가)
+            // $(".test").on("keypress keydown", function(e){
+            //     var count = $(this).val().length;
+            //     if(count >= 100){
+            //         //아스키코드면 이걸로 충분
+            //         e.preventDefault();
+
+            //         //유니코드일 경우때문에 들어가는 코드
+            //         while(count > 100){
+            //             var text = $(this).val();
+            //             text = text.substring(0, text.length-1);
+            //             $(this).val(text);
+            //             count--;
+            //         }
+            //     }
+            //     $(".count").text(count);
+            // });
+
+            //- input : 입력된 후 잘라내기
+            $(".test").on("input", function(){
+                var count = $(this).val().length;
+                
+                while(count > 100){
+                    var text = $(this).val();
+                    text = text.substring(0, text.length-1);
+                    $(this).val(text);
+                    count--;
+                }
+
+                $(".count").text(count);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" class="test">
+    <span>
+        <span class="count">0</span> / 100
+    </span>
+</body>
+</html>

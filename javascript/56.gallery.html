@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .img {
+            width:400px;
+            height:400px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //순서를 이용하여 설정(배열 생각)
+            $(".btn").eq(0).click(function(){
+                $(".img").hide();
+                $(".img").eq(0).show();
+            });
+            $(".btn").eq(1).click(function(){
+                $(".img").hide();
+                $(".img").eq(1).show();
+            });
+            $(".btn").eq(2).click(function(){
+                $(".img").hide();
+                $(".img").eq(2).show();
+            });
+            $(".btn").eq(3).click(function(){
+                $(".img").hide();
+                $(".img").eq(3).show();
+            });
+
+            //다 숨기고 1번만 표시해도 되고, 1번 버튼을 강제 클릭해도 되고
+            $(".btn").eq(0).click();
+        });
+    </script>
+</head>
+<body>
+    <img class="img" src="./image/daum_logo.png">
+    <img class="img" src="./image/naver.png">
+    <img class="img" src="./image/kakao.jpg">
+    <img class="img" src="./image/facebook.png">
+    <hr>
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <button class="btn">4</button>
+
+</body>
+</html>

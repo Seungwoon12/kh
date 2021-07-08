@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //css제어를 이용해서 표시/숨김을 처리할 수 있다.
+            $(".a").click(function(){
+                //document.querySelector(".target").style.display = "none";
+                $(".target").css("display", "none");
+            });
+            $(".b").click(function(){
+                //원래스타일에 맞게 되돌리는것이 어렵다
+                //document.querySelector(".target").style.display = "inline";
+                $(".target").css("display", "inline");
+            });
+
+            $(".c").click(function(){
+                $(".target").hide();
+            });
+            $(".d").click(function(){
+                $(".target").show();
+            });
+            $(".e").click(function(){
+                $(".target").toggle();
+            });
+            $(".f").click(function(){
+                $(".target").slideUp();
+            });
+            $(".g").click(function(){
+                $(".target").slideDown();
+            });
+            $(".h").click(function(){
+                $(".target").slideToggle();
+            });
+            $(".i").click(function(){
+                $(".target").fadeOut();
+            });
+            $(".j").click(function(){
+                $(".target").fadeIn();
+            });
+            $(".k").click(function(){
+                $(".target").fadeToggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button class="a">css숨김</button>
+    <button class="b">css표시</button>
+    <button class="c">hide</button>
+    <button class="d">show</button>
+    <button class="e">toggle</button>
+    <button class="f">slideUp</button>
+    <button class="g">slideDown</button>
+    <button class="h">slideToggle</button>
+    <button class="i">fadeOut</button>
+    <button class="j">fadeIn</button>
+    <button class="k">fadeToggle</button>
+    <hr>
+    <img class="target" src="https://placeimg.com/300/300/any">
+</body>
+</html>

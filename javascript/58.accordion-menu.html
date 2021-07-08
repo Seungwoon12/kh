@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //CSS로 치면 ".accordion-menu a"와 같은 뜻
+            $(".accordion-menu").find("a").click(function(){
+                //주인공 : a태그
+                //$(this).next("ol,ul").toggle();
+                $(this).next("ol,ul").slideToggle();
+                //$(this).next("ol,ul").fadeToggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul class="accordion-menu">
+        <li>
+            <a>자바</a>
+            <ol>
+                <li>
+                    <a>기초</a>
+                    <ul>
+                        <li>변수</li>
+                        <li>조건문</li>
+                        <li>반복문</li>
+                    </ul>
+                </li>
+                <li>객체지향</li>
+                <li>라이브러리</li>
+            </ol>
+        </li>
+        <li>
+            <a>데이터베이스</a>
+            <ol>
+                <li>계정</li>
+                <li>테이블</li>
+                <li>데이터</li>
+            </ol>
+        </li>
+        <li>
+            <a>웹</a>
+            <ol>
+                <li>프론트엔드</li>
+                <li>백엔드</li>
+            </ol>
+        </li>
+    </ul>
+</body>
+</html>

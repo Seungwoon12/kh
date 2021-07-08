@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체선택</title>
+    <script>
+        window.onload = function(){
+            //전체선택 체크박스에 이벤트를 설정
+            document.querySelector(".check-all").addEventListener("input", function(){
+                //this : 전체선택 체크박스
+                
+                var items = document.querySelectorAll(".check-item");
+
+                for(var i=0; i < items.length; i++){
+                //for(var i in items){//사용금지(자바의 확장반복과 의미가 다름)
+                    items[i].checked = this.checked;
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <input type="checkbox" class="check-all"> 전체선택
+    <hr>
+    <input type="checkbox" class="check-item"> 항목1
+    <input type="checkbox" class="check-item"> 항목2
+    <input type="checkbox" class="check-item"> 항목3
+    <input type="checkbox" class="check-item"> 항목4
+</body>
+</html>

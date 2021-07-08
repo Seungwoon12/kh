@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //버튼을 누르면 글자를 빨강으로 변경
+            $(".btn").click(function(){
+                //document.querySelector(".target").style.color = "red";
+                $(".target").css("color", "red").css("background-color", "yellow");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button class="btn">클릭</button>
+    <h1 class="target">Hello jQuery!</h1>
+</body>
+</html>

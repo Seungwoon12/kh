@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+    </style>
+    <script>
+        window.onload = function(){
+            //확대 버튼과 축소 버튼에 이벤트를 각각 부여
+            // - 확대버튼을 누르면 img태그가 확대되도록 구현
+            // - 축소버튼을 누르면 img태그가 축소되도록 구현
+
+            document.querySelector(".plus").addEventListener("click", allInOne);
+            document.querySelector(".minus").addEventListener("click", allInOne);
+        };
+
+        //allInOne 함수는 누가 실행시키나요?
+        //- 자바스크립트에게 실행 예약을 부탁하는것. 
+        //- 따라서 자바스크립트가 넘긴 정보만 받을 수 있다.
+        //- 내가 임의의 매개변수를 추가할 수 없다.
+        function allInOne(){
+            console.log(this);//this는 이 함수를 실행시킨 주인공
+            console.log(this.classList);
+            console.log(this.textContent);            
+
+            // 방법 1 : classList 활용
+            // var img = document.querySelector(".img");
+            // if(this.classList.contains("plus")){
+            //     img.width += 30;
+            //     img.height += 30;
+            // }
+            // else if(this.classList.contains("minus")){
+            //     img.width -= 30;
+            //     img.height -= 30;
+            // }
+
+            // 방법2 : textContent 활용
+            var img = document.querySelector(".img");
+            if(this.textContent === "확대"){
+                img.width += 30;
+                img.height += 30;
+            }
+            else if(this.textContent === "축소"){
+                img.width -= 30;
+                img.height -= 30;
+            }
+        }
+    </script>
+</head>
+<body>
+    <button class="plus">확대</button>
+    <button class="minus">축소</button>
+    <hr>
+    <img src="https://placeimg.com/200/200/any" class="img" width="200" height="200">
+</body>
+</html>

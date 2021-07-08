@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 확대 축소 프로그램</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <script>
+        //input[type=range]의 값을 읽어 img에 적용
+        //- 조건이 필요하지 않다(range가 범위제한이 걸려있기 때문)
+        function changeSize(){
+            var range = document.querySelector("input[type=range]");
+            var img = document.querySelector("#custom-image");
+            //console.log(range);
+            //console.log(img);
+
+            img.width = range.value;
+            img.height = range.value;
+        }
+    </script>
+</head>
+<body>
+    <!--
+        범위 선택 도구를 최소값 90, 최대값 450, 증가치 30, 기본값 200으로 설정
+        클릭이벤트는 부적절하고 값이 변화하는 경우를 감지하여 처리
+        - onchange : 값이 변화하는 시점에 발생하는 이벤트
+        - oninput : 값이 입력되는 시점에 발생하는 이벤트
+    -->
+    
+        <!-- 
+            <input type="range" min="90" max="450" step="30" value="200" onchange="changeSize();"> 
+        -->
+   
+    <input type="range" min="90" max="450" step="30" value="200" oninput="changeSize();">
+    <hr>
+    <img alt="실습용 이미지" src="https://placeimg.com/200/200/any" id="custom-image"
+                                                                        width="200" height="200">
+</body>
+</html>

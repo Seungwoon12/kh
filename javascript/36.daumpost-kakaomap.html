@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다음우편API + 카카오지도</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .outbox {
+            width:500px;
+        }
+        .outbox #map {
+            height:400px;
+        }
+    </style>
+     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f822dd624ee1a8b07e90bf7d06c4cb8&libraries=services"></script>
+     <script>
+         function findAddress() {
+             new daum.Postcode({
+                 oncomplete: function(data) {
+                     var roadAddr = data.roadAddress; // 도로명 주소 변수
+                     var extraRoadAddr = ''; // 참고 항목 변수
+                     if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                         extraRoadAddr += data.bname;
+                     }
+                     if(data.buildingName !== '' && data.apartment === 'Y'){
+                     extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                     }
+                     if(extraRoadAddr !== ''){
+                         extraRoadAddr = ' (' + extraRoadAddr + ')';
+                     }
+
+                     document.querySelector("input[name=post]").value = data.zonecode;
+                     //roadAddr이 없으면 data.jibunAddress를 넣으세요(예비데이터)
+                     document.querySelector("input[name=basic_address]").value = roadAddr || data.jibunAddress;
+                     //커서를 상세주소란으로 이동
+                     document.querySelector("input[name=detail_address]").value = "";
+                     document.querySelector("input[name=detail_address]").focus();
+
+                     //끝나고 나서 kakaomap() 을 불러서 지도를 표시하도록 코드작성
+                     //kakaomap();
+
+                     //유용한 팁(중급이상) : 자바스크립트에서 태그의 value를 바꾸면 어떠한 이벤트도 발생하지 않는다.
+                     //- 이벤트라는 것은 화면에서 사용자가 무엇인가 했을 때 발생하는 것이다.
+                     //- 만약 이벤트 발생을 시키려면 강제로 발생시켜야 한다.
+                     //- 이벤트를 만들어서 발생시키는 방법이 있다.
+                     var evt = new Event("blur");
+                     document.querySelector("input[name=basic_address]").dispatchEvent(evt);
+                 }
+             }).open();
+         }
+
+         function kakaomap(){
+            var mapContainer = document.getElementById('map'), 
+                mapOption = {
+                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                    level: 3 
+                };  
+
+            var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+            //입력값 가져오기
+            var address = document.querySelector("input[name=basic_address]").value;
+            if(!address){
+                return;
+            }
+
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            geocoder.addressSearch(address, function(result, status){
+                if (status === kakao.maps.services.Status.OK) {
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">'+address+'</div>'
+                    });
+                    infowindow.open(map, marker);
+
+                    map.setCenter(coords);
+                } 
+            });    
+        }
+     </script>
+</head>
+<body>
+    <div class="outbox">
+
+        <div class="row center">
+            <h1>우편번호 검색 + 지도 표시</h1>
+        </div>
+
+        <!-- 우편번호 검색을 위한 도구 배치 -->
+        <div class="row">
+            <input type="text" name="post" class="input input-inline" placeholder="우편번호">
+            <input type="button" value="검색" class="input input-inline" onclick="findAddress();">
+        </div>
+
+        <div class="row">
+            <input type="text" name="basic_address" class="input" placeholder="기본주소" onblur="kakaomap();">
+        </div>
+
+        <div class="row">
+            <input type="text" name="detail_address" class="input" placeholder="상세주소">
+        </div>
+
+        <!-- 주소 검색 결과에 따라 지도가 나올 수 있는 영역을 배치 -->
+        <div class="row">
+            <div id="map"></div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

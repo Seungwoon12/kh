@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            //버튼을 누르면 .a에 있는 글자를 .b로 복사
+            var button = document.querySelector(".c");
+            button.addEventListener("click", function(){
+                var a = document.querySelector(".a");
+                var b = document.querySelector(".b");
+                b.value = a.value;
+                //a.value = b.value;
+            });
+        };
+    </script>
+</head>
+<body>
+    <input type="text" class="a"><br><br>
+    <input type="text" class="b"><br><br>
+    <input type="button" value="글자 복사" class="c">
+</body>
+</html>

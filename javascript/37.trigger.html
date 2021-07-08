@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트리거(trigger)</title>
+    <script>
+        function test1(){
+            console.log("테스트1");
+
+            //test2();
+            var e = new Event("click");//이벤트 객체 생성(행동)
+            document.getElementById("target").dispatchEvent(e);
+            //document.querySelector("#target").dispatchEvent(e);
+        }
+        function test2(){
+            console.log("테스트2");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="test1();">버튼1</button>
+    <button id="target" onclick="test2();">버튼2</button>
+</body>
+</html>

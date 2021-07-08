@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력창 스타일 제어</title>
+    <script>
+        function checkId(){
+            var regex = /^[a-z][a-z0-9]{7,19}$/;
+            var idInput = document.querySelector("input[name=id]");
+
+            if(regex.test(idInput.value)){
+                //idInput.style = "border:5px solid blue";
+                idInput.style.border = "5px solid blue";
+                //idInput.style.borderColor = "blue";
+                //idInput.style.borderWidth = "5px";
+                //idInput.style.borderStyle = "solid";
+            }
+            else{
+                //idInput.style = "border:5px solid red";
+                idInput.style.border = "5px solid red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="">
+        <fieldset>
+            <legend>회원가입</legend>
+            <input type="text" name="id" oninput="checkId();">
+            <input type="submit" value="가입">
+        </fieldset>
+    </form>
+</body>
+</html>

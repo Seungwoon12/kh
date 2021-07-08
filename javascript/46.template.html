@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        //태그를 선택하려면 페이지가 로딩이 되어야 한다.
+        // - jquery에서는 페이지 로딩 + jquery 사용준비까지 되어야 한다.
+        // - onload로는 위험하여 onready라는 이벤트를 설정하도록 권장.
+
+        //javascript에서 document.querySelector() 하던것처럼
+        //jQuery의 시작은 "무언가를 선택"하는 것부터 시작한다.
+        //= jQuery(선택할 대상) + 명령
+
+        //자바스크립트 원형
+        //document.addEventListener("ready", function(){});
+
+        //1. 가장 긴 원형
+        //jQuery(document).on("ready", function(){});
+
+        //2. 축약 명령으로 교체
+        //jQuery(document).ready(function(){});
+
+        //3. jQuery라고 쓰기 귀찮으니 $로 교체하여 사용
+        //$(document).ready(function(){});
+
+        //4. document를 선택한다는 사실은 기정사실이므로 생략이 가능
+        //$(/*document*/).ready(function(){});
+
+        //5. 다 압축시켜버리자!
+        $(function(){});
+    </script>
+</head>
+<body>
+    <h1>Hello jQuery</h1>
+    <h1>Hello jQuery</h1>
+    <h1>Hello jQuery</h1>
+</body>
+</html>

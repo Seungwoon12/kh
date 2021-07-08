@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .outbox{
+            width:300px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //버튼을 누르면 항목을 생성
+            $("#create-button").click(function(){
+                //문자열로 태그를 만들어서 추가
+
+                // $("<input type='text' name='content' class='input' placeholder='제목을 입력하세요'>")
+                //                                                                                             .appendTo(".outbox");
+
+                // $("<div class='row'><input type='text' name='content' class='input' placeholder='제목을 입력하세요'></div>")
+                //                                                                                                 .appendTo(".outbox");
+
+                //자바스크립트에서 multi-line string을 만들고 싶으면 줄 마지막에 \로 연결한다
+                $("<div class='row'>\
+                        <input type='text' name='content' class='input' placeholder='제목을 입력하세요'>\
+                    </div>").appendTo(".outbox");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- 기본 화면 구현 : 제목창 1개 , 항목창 3개 -->
+    <div class="outbox">
+        <div class="row">투표 제목</div>
+        <div class="row">
+            <input type="text" name="title" class="input" placeholder="제목을 입력하세요">
+        </div>
+        <div class="row">투표 항목</div>
+        <div class="row">
+            <input type="text" name="content" class="input" placeholder="항목을 입력하세요">
+        </div>
+        <div class="row">
+            <input type="text" name="content" class="input" placeholder="항목을 입력하세요">
+        </div>
+        <div class="row">
+            <input type="text" name="content" class="input" placeholder="항목을 입력하세요">
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="button" id="create-button" class="input input-inline" value="+ 항목 추가">
+    </div>
+</body>
+</html>

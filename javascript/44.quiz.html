@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동의화면 문제</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+
+    </style>
+    <script>
+        window.onload = function(){
+            //목적 : form에 설정된 기본이벤트를 취소시키고 우리가 원하는 검사를 추가하여 통과할 때만 전송
+            //- 기본이벤트를 정지시키고 싶다면 반드시 이벤트 처리 함수에 정보를 받는 매개변수가 있어야 한다.
+            var form = document.querySelector(".agree-form");
+            form.addEventListener("submit", function(e){
+                //기본 이벤트 정지 명령
+                e.preventDefault();
+
+                //원하는 작업(검사)을 추가
+                var cks = document.querySelectorAll(".agree-form input[name=agree]");
+                for(var i=0; i < cks.length; i++){
+                    //if(만약에 체크가 안되어있다면){
+                    //if(cks[i].checked == false){
+                    if(!cks[i].checked){
+                        alert("모든 항목에 동의하세요!");
+                        return;
+                    }
+                }
+
+                //전송 : form 객체에 submit() 실행
+                //document.querySelector(".agree-form").submit();
+                //form.submit();
+                this.submit();
+            });
+        };
+    </script>
+</head>
+<body>
+    <form class="agree-form" action="" method="get">
+        <input type="checkbox" name="agree" value="1"> 동의1 <br>
+        <input type="checkbox" name="agree" value="2"> 동의2 <br>
+        <input type="checkbox" name="agree" value="3"> 동의3 <br>
+        <input type="submit" value="다음 단계로 이동">
+    </form>
+</body>
+</html>

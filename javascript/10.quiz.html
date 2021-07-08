@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 일치 검사</title>
+    <script>
+        //함수 이름은 가급적 너무 흔한 단어는 제외하고 구현
+        //- 내장된 함수 이름과 겹칠 수 있다.
+        function passwordCheck(){
+            var pw = document.querySelector("#pw");
+            var pw2 = document.querySelector("#pw-re");
+            var result = document.querySelector("#result");
+
+            //pw와 pw2 태그의 value를 불러와서 비교
+            //- 자바스크립트에서는 비교를 == 또는 === 로 한다
+            //- 미입력인 경우도 고려해야 한다
+            //- 미입력은 글자 자체가 비어있는지 검사하거나 길이로 검사(length)
+            // console.log(pw.value.length);
+
+            //if(pw값이 있고 pw2값이 있고 둘이 같으면){
+            //if(pw.value.length > 0 && pw2.value.length > 0 && pw.value == pw2.value) {
+            //if(pw.value && pw2.value && pw.value == pw2.value) {
+            if(pw.value && pw.value == pw2.value){
+                result.value = "통과!";
+            }
+            else{
+                result.value = "비밀번호가 일치하지 않아요";
+            }
+        }
+    </script>
+</head>
+<body>
+        <label for="pw">비밀번호 :</label> 
+        <input type="text" id="pw">
+        <br><br>
+        <label for="pw-re">비밀번호 확인 :</label> 
+        <input type="text" id="pw-re">
+        <br><br>
+        <input type="button" value="검사!" onclick="passwordCheck();">
+        <br><br>
+        <label for="result">검사 결과 : </label>
+        <input type="text" id="result">
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery를 이용한 글자 복사</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //버튼을 클릭하면 위 입력창의 값을 아래에 복사
+            //- .val() : value를 제어할 수 있는 setter/getter 명령
+            $(".c").click(function(){
+                //글자 불러오기 : .val()
+                //var text = $(".a").val();
+                //console.log(text);
+
+                //글자 집어넣기 : .val(값)
+                //$(".b").val(text);
+
+                //한줄로 축약시키면 다음과 같다.
+                $(".b").val($(".a").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" class="a"><br><br>
+    <input type="text" class="b"><br><br>
+    <input type="button" class="c" value="글자 복사">
+</body>
+</html>

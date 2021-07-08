@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오지도 예제</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f822dd624ee1a8b07e90bf7d06c4cb8"></script>
+    <script>
+        function kakaomap(){
+            
+            //입력창의 정보를 불러오는 코드
+            var lat = document.querySelector("#lat").value;
+            var lng = document.querySelector("#lng").value;
+            var zoom = document.querySelector("#zoom").value;
+
+            //입력값 검사
+            if(!lat || !lng || zoom){
+                alert("모든 정보를 입력하세요!");
+                return;
+            }
+            
+            //지도 태그를 선택
+            var container = document.querySelector("#map");
+            
+            //지도 생성 옵션
+            var options = { 
+                //지도의 중심좌표(위도 : latitude , 경도 : longitude)
+                center: new kakao.maps.LatLng(lat, lng), 
+                //지도의 표시범위(배율이 아니라 층수 개념으로 이해)
+                level: zoom
+            };
+
+            //지도 생성
+            var map = new kakao.maps.Map(container, options); 
+        }
+    </script>
+</head>
+<body>
+    위도 : <input type="text" id="lat"><br>
+    경도 : <input type="text" id="lng"><br>
+    배율 : <input type="number" id="zoom" value="3"><br>
+    <button onclick="kakaomap();">지도 불러오기</button>
+    <div id="map" style="width:500px;height:400px;"></div>
+</body>
+</html>

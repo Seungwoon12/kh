@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+    </style>
+    <script>
+        window.onload = function(){
+            //확대 버튼과 축소 버튼에 이벤트를 각각 부여
+            // - 확대버튼을 누르면 img태그가 확대되도록 구현
+            // - 축소버튼을 누르면 img태그가 축소되도록 구현
+
+            document.querySelector(".plus").addEventListener("click", function(){
+                var img = document.querySelector(".img");
+                img.width += 30;
+                img.height += 30;
+            });
+            document.querySelector(".minus").addEventListener("click", function(){
+                var img = document.querySelector(".img");
+                img.width -= 30;
+                img.height -= 30;
+            });
+        };
+    </script>
+</head>
+<body>
+    <button class="plus">확대</button>
+    <button class="minus">축소</button>
+    <hr>
+    <img src="https://placeimg.com/200/200/any" class="img" width="200" height="200">
+</body>
+</html>

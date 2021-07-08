@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>주소로 장소 표시하기</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f822dd624ee1a8b07e90bf7d06c4cb8&libraries=services"></script>
+    <script>
+        //모든 함수에서 접근할 수 있도록 바깥에 변수를 선언
+        // - 전역 변수 또는 글로벌 변수라고 한다
+        // - 주의 : 다른 라이브러리들과 충돌 발생 위험이 높음
+        // - 정말 필요할 때를 제외하고 사용을 안하는 것이 좋음
+        var map;
+
+        //처음 로딩됐을 때 실행할 함수
+        function initialize(){
+            var mapContainer = document.getElementById('map'), 
+                mapOption = {
+                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                    level: 3 
+                };  
+            map = new kakao.maps.Map(mapContainer, mapOption); 
+        }
+
+        //검색을 원할 때 실행할 함수
+        function findAddress(){
+            //입력창의 값을 불러오는 코드
+            var address = document.querySelector("input[name=address]").value;
+            if(!address){
+                alert("주소를 입력하세요");
+                return;
+            }
+
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            geocoder.addressSearch(address, function(result, status){
+                if (status === kakao.maps.services.Status.OK) {
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">주소</div>'
+                    });
+                    infowindow.open(map, marker);
+                    map.setCenter(coords);
+                } 
+            });
+        }
+    </script>
+</head>
+<body onload="initialize();">
+    <input type="text" name="address">
+    <button onclick="findAddress();">검색</button>
+    <div id="map" style="width:100%;height:350px;"></div>
+</body>
+</html>

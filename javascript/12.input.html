@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 이벤트</title>
+    <script>
+        //입력창의 입력값을 불러와서 글자수를 세어 span에 출력
+        function calc(){
+            var input = document.querySelector("input[name=temp]");
+            var span = document.querySelector("input[name=temp] + span");
+
+            //1. 입력글자를 span으로 옮겨보고(복사)
+            //2. 입력글자수를 span으로 옮겨본다
+            
+            //span.value = input.value;//안됨. value는 "입력태그"만 가질 수 있다.
+
+            //속성이 아니라 "내부의 글자"를 변경하고 싶으면 .textContent 를 제어해야 한다
+            span.textContent = input.value.length;
+        }
+    </script>
+</head>
+<body>
+    <!-- 목표 : input 태그에 입력을 하면 입력된 글자수를 span에 표시하는 것! -->
+
+    <input type="text" name="temp" oninput="calc();">
+    <span>0</span>
+    <br>
+    <input type="text" name="temp2">
+    <span>0</span>
+
+</body>
+</html>

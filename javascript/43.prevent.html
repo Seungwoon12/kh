@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본 작업 방지</title>
+    <script>
+        //목표 : a태그를 누르면 해당 사이트가 새창으로 열리도록 구현
+        // - a태그는 기본이벤트로 href에 적힌 사이트로 이동하도록 되어 있다.
+        // - 새창으로 띄우려면 기본이벤트를 중지시키고 새로운 이벤트를 부여해야한다.
+        // - a, form태그는 이런 작업이 필요하다
+        window.onload = function(){
+            var links = document.querySelectorAll("a");
+
+            for(var i=0; i < links.length; i++){
+                links[i].addEventListener("click", function(e){
+                    //this : i번째 링크
+                    //- 기본이벤트는 중지시키려면 반드시 이벤트 제어 객체가 필요하다.
+                    //- 이벤트 처리 함수에는 자바스크립트에서 이벤트 정보 객체를 첫번째 매개변수로 추가해준다.(규칙)
+                    //- e.preventDefault(); 명령을 사용하면 진행 예정인 기본 이벤트가 전부 취소된다.
+                    e.preventDefault();//return false와 같은 효과
+
+                    console.log(arguments);//전달되는 모든 매개변수 확인
+
+                    //이 뒤에 추가 이벤트 처리를 구현
+                    window.open(this.href, "", "width=400px,height=400px");
+                });
+            }
+        };
+    </script>
+</head>
+<body>
+    <a href="https://www.google.com">구글로 이동</a>
+    <a href="https://www.naver.com">네이버로 이동</a>
+    <a href="https://www.kakao.com">카카오로 이동</a>
+</body>
+</html>

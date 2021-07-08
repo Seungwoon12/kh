@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //목표 : 삭제버튼을 클릭하면 해당 줄을 지운다(+확인창)
+            //- .empty() : 해당 태그의 내용을 비운다(태그는 존재)
+            //- .remove() : 해당 태그를 삭제한다(태그가 사라짐)
+            $(".delete-btn").click(function(){
+                //주인공 : 삭제버튼
+                //$(this).parent().remove();
+
+                if(confirm("정말 지우시겠습니까?")){
+                    $(this).parent().remove();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="row">
+        <input type="text">
+        <button class="delete-btn">삭제</button>
+    </div>
+    <div class="row">
+        <input type="text">
+        <button class="delete-btn">삭제</button>
+    </div>
+    <div class="row">
+        <input type="text">
+        <button class="delete-btn">삭제</button>
+    </div>
+    <div class="row">
+        <input type="text">
+        <button class="delete-btn">삭제</button>
+    </div>
+    <div class="row">
+        <input type="text">
+        <button class="delete-btn">삭제</button>
+    </div>
+
+</body>
+</html>

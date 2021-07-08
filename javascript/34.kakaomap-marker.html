@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오지도 예제</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f822dd624ee1a8b07e90bf7d06c4cb8"></script>
+    <script>
+        function kakaomap(){
+            
+            //지도 태그를 선택
+            var container = document.querySelector("#map");
+            
+            //지도 생성 옵션
+            var options = { 
+                //지도의 중심좌표(위도 : latitude , 경도 : longitude)
+                center: new kakao.maps.LatLng(33.450701, 126.570667), 
+                //지도의 표시범위(배율이 아니라 층수 개념으로 이해)
+                level: 3
+            };
+
+            //지도 생성
+            var map = new kakao.maps.Map(container, options); 
+
+            // 마커가 표시될 위치입니다 
+            var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                position: markerPosition
+            });
+
+            // 마커가 지도 위에 표시되도록 설정합니다
+            marker.setMap(map);
+
+            // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+            // marker.setMap(null);    
+        }
+    </script>
+</head>
+<!--
+    문제점 : 
+    - onclick으로 kakaomap()을 부르면 버튼을 눌러야 지도가 나온다    
+    - 버튼을 두 번 누르면 지도가 두 개가 생긴다
+    - 페이지 로딩 완료시 지도를 표시할 수는 없는가?
+    해결책 : 
+    - onload를 사용하여 kakaomap()을 호출한다
+-->
+<body onload="kakaomap();">
+    <div id="map" style="width:500px;height:400px;"></div>
+</body>
+</html>

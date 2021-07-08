@@ -1,0 +1,112 @@
+  
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //각각의 창들에 대한 처리(blur)
+            //$("input[name=id]").on("blur", function(){});
+            $("input[name=id]").blur(function(){
+                //this : 아이디입력창
+                var id = $(this).val();
+                var regex = /[a-z][a-z0-9]{7,19}/;
+                if(regex.test(id)){
+                    //this.nextElementSibling.textContent = "올바른 아이디 형식입니다";//VanillaJS
+                    $(this).next().text("올바른 형식입니다");//jQuery
+                    //올바른 형식임을 클래스로 표시
+                    //this.classList.add("correct");
+                    $(this).addClass("correct");
+                }
+                else{
+                    $(this).next().text("아이디는 8~20자 이내로 작성하세요");
+                    //올바른 형식임을 표시하는 클래스를 제거
+                    //this.classList.remove("correct");
+                    $(this).removeClass("correct");
+                }
+            });
+
+            $("input[name=pw]").blur(function(){
+                var pw = $(this).val();
+                var regex = /^[a-zA-Z0-9!@#$]{8,16}$/;
+                if(regex.test(pw)){
+                    $(this).next("span").text("올바른 비밀번호 형식입니다");
+                    $(this).addClass("correct");
+                }
+                else{
+                    $(this).next("span").text("비밀번호는 8~16자 영문,숫자,!@#$로 작성하세요");
+                    $(this).removeClass("correct");
+                }
+            });
+
+            $("input[name=nick]").blur(function(){
+                var nick = $(this).val();
+                var regex = /[가-힣]{2,10}/;
+                if(regex.test(nick)){
+                    $(this).next().text("올바른 닉네임입니다");
+                    $(this).addClass("correct");
+                }
+                else{
+                    $(this).next().text("닉네임은 한글 2~10자만 가능합니다");
+                    $(this).removeClass("correct");
+                }
+            });
+
+            $("input[name=birth]").blur(function(){
+                var birth = $(this).val();
+                var regex = /^((19|20)[0-9]{2})-((0[13578]|1[02])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])|(0[469]|11)-(0[1-9]|1[0-9]|2[0-9]|30)|02-(0[1-9]|1[0-9]|2[0-8]))$/;
+                if(regex.test(birth)){
+                    $(this).next().text("올바른 날짜 형식입니다");
+                    $(this).addClass("correct");
+                }
+                else{
+                    $(this).next().text("잘못된 날짜 형식입니다");
+                    $(this).removeClass("correct");
+                }
+            });
+
+            //form도 검사를 해야하는데...... 저걸 또쓰나............
+            //1. 다시한번 새로운 마음으로 쓴다
+            //2. 다른 방법을 알아본다
+            // - 태그에 통과 표시를 해둔다... 조작 가능!
+            // - 전역변수를 만들어 상태를 저장해둔다... 조작 가능!
+            // - blur이벤트를 강제 발생시켜서 결과를 확인한다
+            $(".test-form").submit(function(e){
+                e.preventDefault();
+
+                // $("input[name=id]").blur();//blur이벤트를 발생시켜라!
+                // $("input[name=pw]").blur();
+                // $("input[name=nick]").blur();
+                // $("input[name=birth]").blur();
+                $(".test-input").blur();
+
+                //.test-input과 .correct가 같이 붙어있는 태그가 4개라면 전송!
+                if($(".test-input.correct").length == 4){
+                    this.submit();//전송(전송은 Javascript로 해야한다)
+                    //$(this).submit();//submit이벤트를 발생시켜라(무한지옥)
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form class="test-form" action="" method="POST">
+        <input class="test-input" type="text" name="id" placeholder="아이디">
+        <span></span>
+        <hr>
+        <input class="test-input" type="text" name="pw" placeholder="비밀번호">
+        <span></span>
+        <hr>
+        <input class="test-input" type="text" name="nick" placeholder="닉네임">
+        <span></span>
+        <hr>
+        <input class="test-input" type="text" name="birth" placeholder="생년월일">
+        <span></span>        
+        <hr>
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>

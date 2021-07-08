@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //목표 : 생성버튼을 누르면 h1태그를 만들어 "Hello DOM"을 작성하여 .target 내부에 추가
+            // - 배워야 할 명령 : 태그 생성 및 추가
+            // - 태그 생성은 선택자로 가능하다. ex) $("<h1>")
+            $(".add-btn").click(function(){
+                
+                //h1 태그를 신규 생성해서 "Hello DOM"이라고 글자를 채운 뒤 .target 안쪽 밑부분에 추가해라
+                //$("<h1>").text("Hello DOM").appendTo(".target");
+
+                //prependTo는 안쪽 윗부분에 추가한다.
+                //$("<h1>").text("Hello DOM").prependTo(".target");
+
+                //중첩된 태그 추가
+                var div = $("<div>");
+                var h1 = $("<h1>").text("test");
+                h1.appendTo(div);
+                div.appendTo(".target");
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="target"></div>
+    <button class="add-btn">생성</button>
+</body>
+</html>

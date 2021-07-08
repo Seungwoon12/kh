@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+    <script>
+        //자바스크립트에도 배열이 있다. 객체 취급한다
+        // = 자바스크립트 배열은 고정 크기가 아니기 때문에 자바의 List 형태라고 이해하면 된다
+        // = index를 이용하여 접근한다
+        //- 정적 배열
+        //- 동적 배열
+
+        //정적 배열 : 값을 지정하며 만들 수 있음(크기 변경 가능)
+        var a = [10, 20, 30, 40, 50];
+        console.log(a);
+
+        //동적 배열 : 크기를 지정하며 만들 수 있음(크기 변경 가능)
+        var b = new Array(5);
+        console.log(b);
+
+        //출력
+        // console.log(a[0]);
+        // console.log(a[1]);
+        // console.log(a[2]);
+        // console.log(a[3]);
+        // console.log(a[4]);
+        // console.log(a[5]);
+
+        for(var i=0; i < a.length; i++){
+            //console.log(a[i]);
+            console.log(b[i]);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

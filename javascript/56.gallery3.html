@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .img {
+            width:400px;
+            height:400px;
+        }
+        .btn {
+            width:50px;
+            height:50px;
+            cursor:pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            
+            //아이디를 맞춰두고 계산해서 선택하는 코드
+            $(".btn").click(function(){
+                //this : 선택한 썸네일 이미지
+                var id = $(this).attr("id");
+                var targetId = id + "-target";
+                $(".img").hide();
+                $("#"+targetId).show();
+            });
+
+            $("#img-1").click();
+        });
+    </script>
+</head>
+<body>
+    <img id="img-1-target" class="img" src="./image/daum_logo.png">
+    <img id="img-2-target" class="img" src="./image/naver.png">
+    <img id="img-3-target" class="img" src="./image/kakao.jpg">
+    <img id="img-4-target" class="img" src="./image/facebook.png">
+    <hr>
+    
+    <img id="img-1" class="btn" src="./image/daum_logo.png">
+    <img id="img-2" class="btn" src="./image/naver.png">
+    <img id="img-3" class="btn" src="./image/kakao.jpg">
+    <img id="img-4" class="btn" src="./image/facebook.png">
+</body>
+</html>

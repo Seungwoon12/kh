@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성</title>
+    <script>
+        //Q : 과거에 풀었던 "평창올림픽 출전선수 정보"를 정적 방식으로 객체화하여 출력하세요
+        var a = {
+            name : "김연아",
+            type : "피겨스케이팅",
+            gold : 2,
+            silver : 0,
+            bronze: 1
+        };
+        var b = {
+            name : "이상화",
+            type : "스피드스케이팅",
+            gold : 1,
+            silver : 2,
+            bronze : 1
+        };
+        var c = {
+            name : "윤성빈",
+            type : "스켈레톤",
+            gold : 1,
+            silver : 0,
+            bronze : 1
+        };
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        //Q : 과거에 풀었던 "상품정보"를 동적 방식(생성자 함수 방식)으로 객체화하여 출력하세요
+        function Product(code, name, type, price){
+            this.code = code;
+            this.name = name;
+            this.type = type;
+            this.price = price;
+        }
+
+        var d = new Product("A00001", "참이슬", "주류", 1200);
+        var e = new Product("A00002", "처음처럼", "주류", 1300);
+        var f = new Product("B00001", "고무장갑", "생필품", 2000);
+        console.log(d);
+        console.log(e);
+        console.log(f);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

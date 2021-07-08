@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            //jquery는 똑같은 처리를 수행할 경우 개수를 구분하지 않는다(한개든 여러개든 동일)
+            //(주의) 서로 다른 처리를 하려면 구분해야 하기 때문에 반복문이 나옵니다.
+
+            //전체선택을 체크하거나 해제하면 해당 값이 나머지 항목에 적용되도록 구현
+            //$(".select-all").on("input", function(){
+            $(".select-all").change(function(){
+                //주인공(this) : .select-all
+                //console.log(this.checked);//VanillaJS
+                //console.log($(this).attr("checked"));//jQuery
+                //console.log($(this).prop("checked"));//jQuery
+
+                var check = $(this).prop("checked");//checked를 get해라
+                $(".select-item").prop("checked", check);//checked에 check값을 set해라
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="checkbox" class="select-all"> 전체선택
+    <hr>
+    <input type="checkbox" class="select-item"> 포도
+    <input type="checkbox" class="select-item"> 바나나
+    <input type="checkbox" class="select-item"> 딸기
+    <input type="checkbox" class="select-item"> 사과
+</body>
+</html>

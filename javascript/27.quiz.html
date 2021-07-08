@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>누르면 새창으로 이동</title>
+    <style>
+        .sns-logo {
+            width:100px;
+            height:100px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function naver(){
+            //location.href="https://www.naver.com";
+            open("https://www.naver.com", "", "width=400px, height=400px");
+        }
+        function kakao(){
+            open("https://www.kakao.com", "", "width=400px, height=400px");
+        }
+        function facebook(){
+            open("https://facebook.com", "", "width=400px, height=400px");
+        }
+        //통합
+        function movePage(url){
+            open(url, "", "width=400px, height=400px");
+        }
+    </script>
+</head>
+<body>
+    <img class="sns-logo" src="./image/naver.png" onclick="naver();">
+    <img class="sns-logo" src="./image/kakao.jpg" onclick="kakao();">
+    <img class="sns-logo" src="./image/facebook.png" onclick="facebook();">
+    <hr>
+    <img class="sns-logo" src="./image/naver.png" onclick="movePage('https://www.naver.com');">
+    <img class="sns-logo" src="./image/kakao.jpg" onclick="movePage('https://www.kakao.com');">
+    <img class="sns-logo" src="./image/facebook.png" onclick="movePage('https://www.facebook.com');">
+</body>
+</html>
