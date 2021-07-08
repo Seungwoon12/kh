@@ -32,15 +32,15 @@
 			<c:otherwise>
 				<c:forEach items="${list}" var="board">
 					<tr>
-						<td align="center">${board.boardNo}</td>
+						<td align="center">${board.board_no}</td>
 						<td align="left">
-							<a href="/board/read?boardNo=${board.boardNo}">
+							<a href="/board/read?board_no=${board.board_no}">
 								${board.title}
 							</a>
 						</td>
 						<td align="right">${board.writer}</td>
 						<td align="left">
-							<javatime:format value="${board.regDate}"
+							<javatime:format value="${board.reg_date}"
 								pattern="yyyy-MM-dd HH:mm:ss"/>
 						</td>
 					</tr>

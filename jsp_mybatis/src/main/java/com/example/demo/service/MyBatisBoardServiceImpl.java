@@ -27,9 +27,9 @@ public class MyBatisBoardServiceImpl implements MyBatisBoardService {
 	}
 
 	@Override
-	public MyBatisBoard read(Integer boardNo) throws Exception {
+	public MyBatisBoard read(Integer board_no) throws Exception {
 		// TODO Auto-generated method stub
-		return repository.read(boardNo);
+		return repository.read(board_no);
 	}
 
 	@Override
@@ -39,9 +39,9 @@ public class MyBatisBoardServiceImpl implements MyBatisBoardService {
 	}
 
 	@Override
-	public void remove(Integer boardNo) throws Exception {
+	public void remove(Integer board_no) throws Exception {
 		// TODO Auto-generated method stub
-		repository.delete(boardNo);
+		repository.delete(board_no);
 	}
 	
 }

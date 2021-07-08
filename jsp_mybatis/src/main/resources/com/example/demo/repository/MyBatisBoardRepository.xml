@@ -12,16 +12,16 @@
 	
 	<select id="read" resultType="MyBatisBoard">
 		select board_no, title, content, writer, reg_date from jspboard
-		where board_no = #{boardNo}
+		where board_no = #{board_no}
 	</select>
 	
 	<update id="update">
 		update jspboard set title = #{title}, 
-		content = #{content} where board_no = #{boardNo}
+		content = #{content} where board_no = #{board_no}
 	</update>
 	
 	<delete id="delete">
-		delete from jspboard where board_no = #{boardNo}
+		delete from jspboard where board_no = #{board_no}
 	</delete>
 	
 	<select id="list" resultType="MyBatisBoard">

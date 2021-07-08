@@ -9,9 +9,9 @@ public interface MyBatisBoardService {
 	
 	public List<MyBatisBoard> list() throws Exception;
 	
-	public MyBatisBoard read(Integer boardNo) throws Exception;
+	public MyBatisBoard read(Integer board_no) throws Exception;
 	
 	public void modify(MyBatisBoard board) throws Exception;
 	
-	public void remove(Integer boardNo) throws Exception;
+	public void remove(Integer board_no) throws Exception;
 }

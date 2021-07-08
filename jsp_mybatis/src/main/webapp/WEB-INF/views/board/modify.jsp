@@ -31,7 +31,7 @@
 	<h2>게시물 수정</h2>
 	
 	<form:form modelAttribute="myBatisBoard" action="modify">
-		<form:hidden path="boardNo"/>
+		<form:hidden path="board_no"/>
 		
 		<table>
 			<tr>

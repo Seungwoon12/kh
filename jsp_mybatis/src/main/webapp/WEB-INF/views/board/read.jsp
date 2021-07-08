@@ -16,10 +16,10 @@
 		var formObj = $("#myBatisBoard")
 		
 		$("#btnModify").on("click", function () {
-			var boardNo = $("#boardNo")
-			var boardNoVal = boardNo.val();
+			var board_no = $("#board_no")
+			var boardNoVal = board_no.val();
 			
-			self.location = "/board/modify?boardNo=" + boardNoVal
+			self.location = "/board/modify?board_no=" + boardNoVal
 		})
 		
 		$("#btnList").on("click", function () {
@@ -37,7 +37,7 @@
 	<h2>게시글 읽기</h2>
 	
 	<form:form modelAttribute="myBatisBoard">
-		<form:hidden path="boardNo"/>
+		<form:hidden path="board_no"/>
 		
 		<table>
 			<tr>

@@ -3,17 +3,17 @@ package com.example.demo.entity;
 import java.time.LocalDateTime;
 
 public class MyBatisBoard {
-	private int boardNo;
+	private int board_no;
 	private String title;
 	private String content;
 	private String writer;
-	private LocalDateTime regDate;
+	private LocalDateTime reg_date;
 	
-	public int getBoardNo() {
-		return boardNo;
+	public int getBoard_no() {
+		return board_no;
 	}
-	public void setBoardNo(int boardNo) {
-		this.boardNo = boardNo;
+	public void setBoard_no(int board_no) {
+		this.board_no = board_no;
 	}
 	public String getTitle() {
 		return title;
@@ -33,16 +33,16 @@ public class MyBatisBoard {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public LocalDateTime getRegDate() {
-		return regDate;
+	public LocalDateTime getReg_date() {
+		return reg_date;
 	}
-	public void setRegDate(LocalDateTime regDate) {
-		this.regDate = regDate;
+	public void setReg_date(LocalDateTime reg_date) {
+		this.reg_date = reg_date;
 	}
 	@Override
 	public String toString() {
-		return "MyBatisBoard [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", regDate=" + regDate + "]";
+		return "MyBatisBoard [board_no=" + board_no + ", title=" + title + ", content=" + content + ", writer=" + writer
+				+ ", reg_date=" + reg_date + "]";
 	}
 	
 }

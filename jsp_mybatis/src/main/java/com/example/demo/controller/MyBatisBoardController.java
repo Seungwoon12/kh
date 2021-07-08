@@ -50,17 +50,17 @@ public class MyBatisBoardController {
 	}
 	
 	@GetMapping("/read")
-	public void read(int boardNo, Model model) throws Exception {
+	public void read(int board_no, Model model) throws Exception {
 		log.info("read()");
 		
-		model.addAttribute(service.read(boardNo));
+		model.addAttribute(service.read(board_no));
 	}
 	
 	@GetMapping("/modify")
-	public void getModify(int boardNo, Model model) throws Exception {
+	public void getModify(int board_no, Model model) throws Exception {
 		log.info("getModify()");
 		
-		model.addAttribute(service.read(boardNo));
+		model.addAttribute(service.read(board_no));
 	}
 	
 	@PostMapping("/modify")
@@ -75,10 +75,10 @@ public class MyBatisBoardController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(int boardNo, Model model) throws Exception {
+	public String remove(int board_no, Model model) throws Exception {
 		log.info("remove()");
 		
-		service.remove(boardNo);
+		service.remove(board_no);
 		
 		model.addAttribute("msg", "삭제가 성공적으로 완료되었습니다.");
 		
