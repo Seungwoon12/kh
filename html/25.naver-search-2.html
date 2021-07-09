@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>네이버 카페 검색창</title>
+    <style>
+        /* 두 개 이상을 동시에 적용 */
+        select, input {
+            font-family: sans-serif;
+            font-size: 25px;
+            padding:12px;
+        }
+        select {
+            width:250px;
+        }
+        /* input 중에서 type속성이 button인 것만 선택하여 효과를 부여 */
+        input[type=button] {
+            background-color: #2db400;
+            color:white;
+            border-style: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <select>
+        <option>전체기간</option>
+    </select>
+    
+    <select>
+        <option>제목+내용</option>
+    </select>
+    
+    <input type="text" placeholder="검색어를 입력하세요">
+    
+    <input type="button" value="검색">
+    
+</body>
+</html>

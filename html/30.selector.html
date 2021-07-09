@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class 활용도 높이기</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        
+        /*
+            크게 두 개로 구분
+            .box - 바깥쪽 상자
+            .unit - 안쪽 구성요소
+        */
+        .box {
+            width:400px;
+            /*border-width, border-style, border-color 한 번에 설정*/
+            border:1px dotted black;
+            text-align: center;
+        }
+        .unit {
+            width:100%;
+            margin:10px 0px;/* 상하 : 10px , 좌우 : 0px */
+        }
+        .title {
+            color:#20ce2f;
+        }
+        .slot {
+            
+        }
+        .btn {
+            background-color: #20ce2f;
+            color:white;
+            border:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 class="unit title">NAVER</h1>
+        <input class="unit slot" type="text">
+        <input class="unit slot" type="password">
+        <input class="unit btn" type="button" value="로그인">
+    </div>
+</body>
+</html>

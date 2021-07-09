@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>레이아웃 구조 구현하기</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        div {
+            border:1px dotted black;/*테스트용*/
+        }
+        .outbox {
+            width:350px;
+            margin:0 auto;
+        }
+        .outbox > .row {
+            margin:0.5rem 0;
+        }
+        
+        /* 개별 스타일 */
+        .title {
+            font-size: 2.5rem;
+        }
+        .login-btn {
+            background-color: dodgerblue;
+            color:white;
+            border:none;
+        }
+        .join-btn{
+            background-color: white;
+            border:1px solid gray;
+            color:dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 
+        바깥쪽 테두리 영역 : .outbox
+        안쪽 테두리 영역 : .row
+    -->
+    <div class="outbox">
+        <div class="row center title">
+            <span style="color:maroon;">cou</span
+            ><span style="color:orangered;">p</span
+            ><span style="color:orange;">a</span
+            ><span style="color:lightgreen;">n</span
+            ><span style="color:lightskyblue;">g</span>
+        </div>
+        <div class="row">
+            <input type="text" class="input input-hint">
+        </div>
+        <div class="row">
+            <input type="password" class="input input-hint">
+        </div>
+        <div class="row">
+            <input type="checkbox">
+            <label>자동로그인</label>
+        </div>
+        <div class="row">
+            <input type="button" class="input login-btn" value="로그인">
+        </div>
+        <hr>
+        <div class="row">
+            <input type="button" class="input join-btn" value="회원가입">
+        </div>
+        <div class="row center">
+            &copy; Coupang Corp. All right reserved.
+        </div>
+    </div>
+    
+</body>
+</html>

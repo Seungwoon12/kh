@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입력창 만들기</title>
+</head>
+<body>
+    <!--
+        input 태그 : 각종 입력창을 만들 수 있는 태그
+        
+        주요 속성(attribute)
+        - type : 입력창의 종류(기본값 text)
+        - value : 표시될 글자 설정. 후에 전송과 관련된 기능이 추가
+        - placeholder : 도움말
+        - name : 입력창의 이름(식별). 후에 전송과 관련된 기능이 추가
+    -->
+    <h1>입력창 만들기</h1>
+    
+    <input type="text" placeholder="입력창 테스트">
+    
+    <hr>
+    
+    <input type="date" placeholder="날짜 선택">
+    
+    <hr>
+    
+    <input type="button" value="버튼 샘플">
+    
+    <hr>
+    
+    <input type="checkbox"> <label>동의합니다</label>
+    
+    <hr>
+    
+    <input type="radio" name="age"> <lable>10대</lable>
+    <input type="radio" name="age"> <lable>20대</lable>
+    <input type="radio" name="age"> <lable>30대</lable>
+    <input type="radio" name="age"> <lable>40대</lable>
+    <input type="radio" name="age"> <lable>50대</lable>
+    <input type="radio" name="age"> <lable>60대</lable>
+    
+    <hr>
+    
+    <input type="search" placeholder="검색어 입력">
+    
+    <hr>
+    
+    <input type="password">
+    
+    <hr>
+    
+    <input type="file">
+    
+    <hr>
+    
+    <!--
+        select 태그 : 콤보박스(combobox)를 만드는 태그
+    -->
+    
+    <select>
+        <option>통신사 선택</option>
+        <option>SKT</option>
+        <option>KT</option>
+        <option>LGuplus</option>
+    </select>
+    
+    <hr>
+    
+    <textarea rows="10" cols="50" placeholder="입력..."></textarea>
+    
+</body>
+</html>

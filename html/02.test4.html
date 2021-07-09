@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        textarea {
+            resize: vertical;
+        }
+        form {
+            margin: 0 auto;
+            width: 700px;
+        }
+        div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="post">
+        <fieldset class="">
+            <legend>납품자정보</legend>
+            <ol>
+                <li>
+                    <label for="sn">납품자명</label>
+                    <input id="sn" type="text" placeholder="name" name="supply_name">
+                </li>
+
+                <li>
+                    <label for="e">email</label>
+                    <input id="e" type="text" placeholder="answs@naver.com" name="email">
+                </li>
+
+                <li>
+                    <label for="hp">홈페이지</label>
+                    <input id="hp" type="text" placeholder="https://" name="homepage">
+                </li>
+
+            </ol>
+
+        </fieldset>
+
+        <fieldset class="">
+            <legend>납품정보</legend>
+            <ul>
+                <li>
+                    <label for="pn">상품명</label>
+                    <input id="pn" type="text" name="product_name">
+                </li>
+                <li>
+                    <label for="t">납품수량</label>
+                    <input id="t" type="text" placeholder="최소10" name="total">
+                </li>
+                <li>
+                    <label for="g">납품등급</label>
+                    <input id="g" type="range" name="grade">
+                </li>
+                <li>
+                    <label for="e">기타사항</label>
+                    <textarea id="e" name="etc"></textarea>
+                </li>
+
+            </ul>
+        </fieldset>
+
+        <div class="">
+            <input type="submit" value="send message">
+        </div>
+
+
+    </form>
+</body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .first, .second, .third {
+            width:150px;
+            height:150px;
+            border:1px solid black;
+            display:block;
+            position:absolute;
+        }
+        .first {
+            background-color: #81ecec;
+            top:50px;
+            left:50px;
+            /* z-index는 겹치는 상황에서 누가 위에 나올지를 결정 */
+            z-index: 3;
+        }
+        .second {
+            background-color: #ffeaa7;
+            top:100px;
+            left:100px;
+            z-index: 2;
+        }
+        .third {
+            background-color: #e17055;
+            top:150px;
+            left:150px;
+            z-index : 1;
+        }
+        .outer {
+            top:100px;
+            left:100px;
+            background-color:lightgray;
+            position:absolute;
+            width:400px;
+            height:400px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        position 속성 : 배치 기준을 정하는 속성
+        - static : 앞에있는 태그가 뒤 태그의 영향을 미침(기본값). 임의의 위치 조정 불가
+        - relative : 앞에있는 태그가 뒤 태그의 영향을 미침. 위치 조정 가능
+        - absolute : 내용에서 절대적인 위치로 태그의 자리를 결정. 위치 조정 가능
+        - fixed : 화면에서 고정적인 위치로 태그의 자리를 결정. 위치 조정 가능
+        
+        위치 조정 옵션 : top / bottom / left / right
+        
+        (중요)
+        - absolute를 div등으로 가둬서 기준점을 설정시킬 수 있다.
+        - 가두는 영역이 최소 relative 이상이어야 한다(static은 안된다)
+    -->
+    
+    <div class="outer">
+        바깥쪽 DIV
+        <div class="first">첫 번째 DIV</div>
+        <div class="second">두 번째 DIV</div>
+        <div class="third">세 번째 DIV</div>
+    </div>
+    
+</body>
+</html>

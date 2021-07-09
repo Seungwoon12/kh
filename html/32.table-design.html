@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>테이블 스타일링</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        /*
+            1 rem : 글자 1개의 세로 크기와 동일
+        */
+        
+        /*
+            테이블 스타일링
+            
+            공통 스타일 : .table
+            확장 스타일 : 
+            - 테두리 부여 : .table-border
+            - 줄무늬 부여 : .table-pattern
+            - 커서 강조 효과 부여 : .table-highlight
+            - 가로줄 테두리 부여 : .table-horizontal
+        */
+        .table {
+            width:100%;
+            border-spacing: 0;
+        }
+        
+        /*
+            그냥 th, td라고 표기하면 태그 자체를 수정하게 된다
+            .table 안에 있는 th와 td에만 효과를 부여하고 싶다면
+        
+            연계 선택자 : 특정 태그를 기준으로 연관된 태그를 선택하는 것
+            
+            .table > thead > tr > th : 
+                class=table 바로 밑 thead 바로 밑 tr 바로 밑 th 선택(직계 자식 탐색)
+            .table th : 
+                class=table 안에 있는 모든 th(후손 탐색)
+        */
+        .table > thead > tr > th,
+        .table > thead > tr > td,
+        .table > tbody > tr > th,
+        .table > tbody > tr > td,
+        .table > tfoot > tr > th,
+        .table > tfoot > tr > td
+        {
+            padding: 0.5rem;
+            text-align: center;
+        }
+        
+        /* 테두리 부여 확장 스타일 */
+        .table.table-border {
+            border:1px solid gray;
+            /* 테두리를 합쳐주는 속성 */
+            border-collapse: collapse;
+        }
+        
+        .table.table-border > thead > tr > th,
+        .table.table-border > thead > tr > td,
+        .table.table-border > tbody > tr > th,
+        .table.table-border > tbody > tr > td,
+        .table.table-border > tfoot > tr > th,
+        .table.table-border > tfoot > tr > td
+        {
+            border:1px solid gray;
+        }
+        
+        /* 
+            줄무늬 확장 스타일 
+            :nth-child()에는 패턴 지정이 가능
+        */
+        .table.table-pattern > thead > tr {
+            background-color: #dddddd;
+            color:black;
+        }
+        .table.table-pattern > tbody > tr:nth-child(2n) {
+            background-color: #dddddd;
+        }
+        
+        /* 마우스가 올라간 줄에 강조효과 주는 스타일 */
+        .table.table-highlight > tbody > tr:hover {
+            background-color: red;
+        }
+        
+        /* 
+            가로줄 테두리 스타일 
+            :not() 으로 원치 않는 상황을 뺄 수 있다
+            :first-child, :last-child로 첫번째와 마지막을 선택할 수 있다.
+        */
+        .table.table-horizontal > tbody > tr > th,
+        .table.table-horizontal > tbody > tr > td{
+            border-bottom:1px solid black;
+        }
+        .table.table-horizontal > tbody > tr:last-child > th,
+        .table.table-horizontal > tbody > tr:last-child > td{
+            border-bottom: none;
+        }
+        .table.table-horizontal{/*테이블 상하 테두리*/
+            border-top: 5px solid black;
+            border-bottom: 5px solid black;
+        }
+        .table.table-horizontal > tfoot > tr:first-child > th,
+        .table.table-horizontal > tfoot > tr:first-child > td{
+            border-top: 5px solid black;/*하단 첫줄 테두리*/
+        }
+        .table.table-horizontal > thead > tr:last-child > th,
+        .table.table-horizontal > thead > tr:last-child > td{
+            border-bottom: 5px solid black;/*상단 마지막줄 테두리*/
+        }
+        
+        /*
+            내부 정렬 스타일
+            
+            !important를 붙이면 우선순위가 올라감
+            (어떠한 방법으로도 바꿀 수 없을때만 사용)
+        */
+        .left {
+            text-align: left !important;
+        }
+        .center{
+            text-align: center !important;
+        }
+        .right {
+            text-align: right !important;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>자유 게시판</h1>
+    
+    <table class="table table-horizontal table-highlight">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th width="50%">제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10</td>
+                <td class="left">10등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td class="left">9등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td class="left">8등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td class="left">7등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td class="left">6등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="left">5등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="left">4등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="left">3등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="left">2등!</td>
+                <td>펭수</td>
+                <td>2020-12-01</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="left">1등!</td>
+                <td>펭수</td>
+                <td>2020-11-30</td>
+                <td>20</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

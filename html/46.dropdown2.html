@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>드롭다운 메뉴</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        /* 전체 메뉴에 리스트 형태의 스타일 제거 */
+        .dropdown {
+            background-color:black;
+            width:150px;
+        }
+        .dropdown,
+        .dropdown ul{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+        /* 2차 이상의 메뉴를 숨김 */
+        /*.dropdown ul*/
+        .dropdown input[type=checkbox] + ul{
+            display:none;
+        }
+        /*체크박스 숨기고 체크되면 하위메뉴 표시 */
+        .dropdown input[type=checkbox]{
+            display: none;
+        }
+        .dropdown input[type=checkbox]:checked + ul{
+            display:block;
+        }
+        
+        /* 모든 a태그 밑줄 제거 및 글자색 설정 */
+        .dropdown label,
+        .dropdown a {
+            color:white;
+            text-decoration: none;
+        }
+        .dropdown ul {
+            margin-top: 0.4rem;
+        }
+        .dropdown li {
+            padding:0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1차 메뉴 -->
+    <ul class="dropdown">
+        <!-- 1차 메뉴 항목 -->
+        <li>
+            <label for="menu1">메뉴1</label>
+            <input type="checkbox" id="menu1">
+            
+            <!-- 2차 메뉴 -->
+            <ul>
+                <li><a href="#">항목1</a></li>
+                <li><a href="#">항목2</a></li>
+                <li><a href="#">항목3</a></li>
+            </ul>
+        </li>
+        
+        <!-- 1차 메뉴 항목 -->
+        <li>
+            <label for="menu2">메뉴2</label>
+            <input type="checkbox" id="menu2">
+            
+            <!-- 2차 메뉴 -->
+            <ul>
+                <li><a href="#">항목1</a></li>
+                <li><a href="#">항목2</a></li>
+                <li><a href="#">항목3</a></li>
+            </ul>
+        </li>
+        
+        <!-- 1차 메뉴 항목 -->
+        <li>
+            <label for="menu3">메뉴3</label>
+            <input type="checkbox" id="menu3">
+            
+            <!-- 2차 메뉴 -->
+            <ul>
+                <li><a href="#">항목1</a></li>
+                <li><a href="#">항목2</a></li>
+                <li><a href="#">항목3</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

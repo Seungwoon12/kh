@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float의 문제점</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        
+        /*
+            float는 일반적인 컴포넌트들과 배치가 어렵다
+            어떠한 규칙에 의해서 섞이는데 파악하기 어렵고 해결하기 어렵다
+        
+            문제점 : float와 비float가 섞이는 것
+            해결책 : float와 비float를 구분하는 것(clear 옵션)
+            1. float가 끝나는 시점에 빈 div를 배치하고 clear옵션을 부여
+            2. float가 나오는 영역을 div로 감싸서 clear 옵션을 부여
+        */
+        
+        .float-left{
+            float:left;
+            width:30%;
+        }
+        .float-right{
+            float:right;
+            width:50%;
+        }
+        
+        /*
+            가상 선택자(virtual selector)
+            - 존재하지 않는 영역을 선택하여 효과를 부여
+            - ::before, ::after
+        
+            클리어 3종세트
+            - content : ""; 를 통하여 영역을 생성
+            - display:block; 을 통하여 해당 줄을 혼자 독차지
+            - clear:both; 를 통하여 모든 float 부여 속성을 제거
+        */
+        .float-box::after {
+            content:"";
+            display:block;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <h1>로그인 화면</h1>
+    
+    <div class="float-box">
+        <div class="float-left">아이디</div>
+        <div class="float-left">입력창</div>
+    </div>
+    
+    <div class="float-box">
+        <div class="float-left">비밀번호</div>
+        <div class="float-left">입력창</div>
+    </div>
+    
+    <input type="submit" value="로그인">
+</body>
+</html>

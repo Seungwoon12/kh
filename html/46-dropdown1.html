@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>드롭다운 메뉴</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        div {
+            border:1px dotted black;
+        }
+        .dropdown {
+            background-color: black;
+            width:150px;
+        }
+        .dropdown > label,
+        .dropdown > a {
+            color: white;
+            text-decoration: none;
+            display:block;
+            padding:10px;
+            cursor:pointer;
+        }
+        /* 최초에 메뉴는 표시하지 않는다 */
+        .dropdown > a {
+            display:none;
+        }
+        /* 체크가 된 경우라면 메뉴를 표시한다 */
+        .dropdown > input[type=checkbox]:checked ~ a {
+            display:block;
+        }
+        /* 체크박스는 보여주지 않는다 */
+        .dropdown > input[type=checkbox] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- div + a 를 이용하여 풀이(간단한 구조) -->
+    <div class="dropdown">
+        <label for="ck">메뉴</label>
+        <input type="checkbox" id="ck">
+        <a href="#">항목1</a>
+        <a href="#">항목2</a>
+        <a href="#">항목3</a>
+    </div>
+</body>
+</html>

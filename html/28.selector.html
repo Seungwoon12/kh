@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>선택자</title>
+    <!--
+        link 태그는 다른 파일과 연결하는 태그
+        - rel : 불러올 파일의 역할
+        - type : 불러올 파일의 유형
+        - href : 불러올 파일의 위치(경로)
+    -->
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        /* 
+            문제점 1 : 태그 이름으로 선택하면 모든 태그에 다 적용된다 
+            문제점 2 : 속성까지 고려해서 선택해도 구분이 어렵다
+            해결책 : 선택을 원활하게 할 수 있도록 추가적인 장치가 필요하다(id,class)
+            - id : 페이지 내에서 딱 하나만 부여할 수 있는 식별용 이름
+            - class : 원하는 대상에 부여할 수 있는 공통 이름
+        
+            div[id=box] 와 div#box는 같다(#은 ID를 나타내는 기호)
+            그러므로 [id=box] 와 #box는 같다
+            
+            아이디를 이용하면 쉽게 단일 대상을 선택할 수 있다.
+            아이디를 이용하면 태그의 원래 형태를 파괴하지 않는다.
+        */
+        #box {
+            width:400px;
+            text-align: center;
+        }
+        #title {
+            color:#20ce3f;
+        }
+        #id-input, #pw-input {
+            width:100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #btn {
+            width:100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box">
+        <h1 id="title">NAVER</h1>
+        <input id="id-input" type="text">
+        <input id="pw-input" type="password">
+        <input id="btn" type="button">
+    </div>
+    
+</body>
+</html>

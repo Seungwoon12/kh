@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>등록 form 퀴즈</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .input-block{
+            display: block;
+        }
+        .outbox {
+            border:2px solid darkblue;
+        }
+    </style>
+</head>
+<body>
+    <form action="50.quiz.html" method="get">
+        <fieldset class="outbox">
+            <legend>Contact Us</legend>
+            
+            <fieldset class="outbox">
+                <legend>Personal Details</legend>
+                
+                <div class="row">
+                    <label>Name *</label>
+                    <input class="input" type="text" name="name">
+                </div>
+                
+                <div class="row">
+                    <label>Email *</label>
+                    <input class="input" type="text" name="email" >
+                </div>
+                
+                <div class="row">
+                    <label>Message</label>
+                    <textarea name="message" class="input"></textarea>
+                </div>
+                
+            </fieldset>
+            
+            <fieldset class="outbox">
+                <legend>Company Details</legend>
+                
+                <div class="row">
+                    <label>Business Name</label>
+                    <input class="input" type="text" name="business_name">
+                </div>
+                
+                <div class="row">
+                    <label>Phone Number</label>                    
+                    <input class="input" type="text" name="phone_number">
+                </div>
+                
+                <div class="row">
+                    <label>Website URL</label>                    
+                    <input class="input" type="text" name="website_url">
+                </div>
+                
+                <div class="row">
+                    <label>Topic</label>
+                    <select class="input input-inline input-block" name="topic">
+                        <option>Purchases</option>
+                        <option>Develop</option>
+                        <option>Sales</option>
+                    </select>
+                </div>
+                
+                <div class="row">
+                    <label>Message</label>                    
+                    <textarea class="input" name="message" rows="4"></textarea>
+                </div>
+                
+            </fieldset>
+            
+            <div class="row">
+                <input type="submit" class="input input-inline" value="SEND">
+            </div>
+            
+        </fieldset>
+    </form>
+</body>
+</html>

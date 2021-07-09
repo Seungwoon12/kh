@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴 형태 만들기</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .nav-div {
+            border:1px solid black;
+            padding:0.5rem;
+        }
+        .nav-div > a {
+            width:80px;
+            display:inline-block;
+            text-align: center;
+            text-decoration: none;
+            color:black;
+        }
+        .nav-div > a:hover {
+            color:red;
+        }
+        /* 방문한 링크 스타일 */
+        .nav-div > a:visited { }
+        
+        
+        /* ul , li 를 이용한 스타일 */
+        .nav-list {
+            margin:0;
+            padding: 0.5rem;
+            border:1px solid black;
+        }
+        .nav-list > li {
+            list-style:none;
+            width:80px;
+            display:inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+        .nav-list > li:hover {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <!-- [1] div와 a태그로 메뉴바 구현 -->
+    <div class="nav-div">
+        <a href="#">가</a>
+        <a href="#">나다</a>
+        <a href="#">라마바</a>
+        <a href="#">사아자차</a>
+        <a href="#">카타파</a>
+    </div>
+
+    <!-- [2] ul과 li로 메뉴바 구현 -->
+    <ul class="nav-list">
+        <li>항목1</li>
+        <li>항목2</li>
+        <li>항목3</li>
+        <li>항목4</li>
+        <li>항목5</li>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table 태그</title>
+</head>
+<body>
+    <!--
+        table 태그 : 표를 만들기 위한 태그(혼자 있을 수 없다)
+        - 표는 구성요소들이 복잡하기 때문에 연계되는 태그가 많다
+        
+        - thead : table header. 제목 영역
+        - tbody : table body. 본문 영역
+        - tfoot : table footer. 하단 영역
+        - tr : 줄 영역
+        - th : 칸 영역. 굵은 글씨 / 가운데 정렬 - 제목 칸
+        - td : 칸 영역. 일반 글씨 / 왼쪽 정렬 - 내용 칸
+        
+        주의 : 글자는 반드시 th 또는 td 안에 작성
+        
+        - border : 테두리
+        - width : 너비
+        - height : 높이(설정안하면 자동계산)
+    -->
+    <table border="1" width="300">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>점수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>피카츄</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>라이츄</td>
+                <td>80</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

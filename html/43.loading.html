@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로딩 화면</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .loading-wrapper {
+            /* opacity는 내용물에 영향, rgba는 배경만 영향 */
+/*            opacity:0.5;*/
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            /*
+            화면전체 
+            = 위로부터 0 + 아래로부터 0 + 왼쪽으로부터 0 + 오른쪽으로부터 0 
+            = top:0 + left : 0 + right : 0 + bottom : 0
+            */
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        /* 로딩영역 내부 이미지 설정 */
+        .loading-wrapper > img{ 
+            width:250px;
+            height:200px;
+            position:fixed;
+            left:50%;
+            top:50%;
+            margin-left: -125px;
+            margin-top: -100px;
+        }
+    </style>
+</head>
+<body>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    <h1><a href="http://www.google.com">결제하기</a></h1>
+    
+    <!--
+        Q : 
+        loading-wrapper 라는 클래스를 부여한 영역을 만들고 화면 전체를 덮어서 클릭이 불가능하도록 배치
+        내부에 원하는 메세지 또는 이미지를 출력하여 "로딩 화면"의 느낌이 발생하도록 구현
+        - 뒤 화면이 비치게 하려면 opacity를 고려
+        - top / left / right / bottom은 비율(%) 설정이 가능
+    -->
+    <div class="loading-wrapper">
+        <img src="./image/loading.gif">
+    </div>
+</body>
+</html>

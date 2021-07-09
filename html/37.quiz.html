@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>카카오 회원가입</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        div{
+            /*border:1px dotted black;*/
+        }
+        .outbox {
+            width:600px;
+            padding:50px;
+            border:1px solid gray;
+        }
+        .outbox > .row {
+            margin:2rem 0;
+        }
+        .auth-btn {
+            border-radius: 100px;
+            padding:0.5rem 2.5rem;
+            background-color: white;
+            cursor: pointer;
+        }
+        .auth-btn:hover {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1 class="center">kakao</h1>
+    
+    <div class="outbox">
+       
+        <div class="row">
+            <h2>카카오계정 정보를 입력하세요</h2>    
+        </div>
+        
+        <div class="row">
+            <label for="email-input">카카오계정 이메일</label>
+            <input id="email-input" type="text" class="input input-underline" placeholder="아이디 입력">
+        </div>
+        
+        <div class="row">
+            <label for="pw-input">비밀번호</label>
+            <input id="pw-input" type="password" class="input input-underline" placeholder="비밀번호(8~32자리)">
+        </div>
+        
+        <div class="row">
+            <input type="password" class="input input-underline" placeholder="비밀번호 재입력">
+        </div>
+        
+        <div class="row">
+            <label for="nickname-input">닉네임</label>
+            <input id="nickname-input" type="text" class="input input-underline" placeholder="닉네임을 입력해주세요.">            
+        </div>
+        
+        <div class="row">
+            <label for="phone-input">전화번호</label>            
+            <input id="phone-input" type="text" class="input input-underline" placeholder="전화번호">
+        </div>
+        
+        <div class="row">
+            <input type="button" value="인증번호 전송" class="input input-inline auth-btn">
+        </div>
+        
+        <div class="row">
+            <label>생일/성별</label>
+        </div>
+        
+        <div class="row">
+            <select class="input input-inline">
+                <option>연도</option>
+                <option>2006</option>
+                <option>2005</option>
+                <option>2004</option>
+            </select>
+            <select class="input input-inline">
+                <option>월</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <select class="input input-inline">
+                <option>일</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+        
+        <div class="row">
+            <input type="radio" id="choice1" name="gender" checked>
+            <label for="choice1">선택안함</label>
+            
+            <input type="radio" id="choice2" name="gender">
+            <label for="choice2">여성</label>
+            
+            <input type="radio" id="choice3" name="gender">
+            <label for="choice3">남성</label>            
+        </div>
+        
+        <div class="row">
+            <input type="button" value="다음" class="input">
+        </div>
+        
+    </div>
+    
+</body>
+</html>

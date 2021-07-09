@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float 속성</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        /* 
+            목표 : 
+            class=half인 대상의 폭을 50%로 설정해서 2단 화면 구현 
+        
+            문제 : 
+            태그 사이에 간격이 있으면 정확한 폭설정이 어렵다
+        
+            원인 : 
+            HTML은 공백은 무조건 띄어쓰기 한칸으로 처리
+        
+            해결 : 
+            지상에서는 답이 없으니 공중으로 띄워서 생각한다
+            display가 아니라 float속성으로 해결
+        
+            설명 : 
+            float:left는 띄워서 왼쪽으로 붙여라!는 뜻
+            float:right는 띄워서 오른쪽으로 붙여라!는 뜻
+        */
+        .half {
+            border:1px solid black;
+            width:20%;
+        }
+        .left {
+            float:left;
+        }
+        .right {
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="half right">첫번째</div>
+    <div class="half left">두번째</div>
+    <div class="half left">세번째</div>
+    
+</body>
+</html>

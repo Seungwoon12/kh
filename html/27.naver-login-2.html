@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naver login page</title>
+    <!-- link를 이용하면 외부 파일을 불러올 수 있다(ex : 디자인) -->
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>        
+        div {
+            /* 내용물 가운데 정렬 */
+            text-align:center;
+            
+            /* 영역(자기자신) 가운데 정렬 */
+            margin-left: auto;
+            margin-right: auto;
+            
+            width:400px;
+        }
+        
+        h1 {
+            color:#20c65f;
+            font-size: 40px;
+            font-weight: bolder;
+        }
+        img {
+            width:150px;
+        }
+        input {
+            color:#cccccc;
+            border-color: #cccccc;
+            border-style: solid;
+            padding:10px;
+            font-size: 25px;
+            width:100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        input[type=button] {
+            color:white;
+            background-color: #20c65f;
+            border-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>NAVER</h1>
+        <img alt="네이버 로고" src="./image/naver_text.png">
+        <input type="text" placeholder="아이디">
+        <input type="password" placeholder="비밀번호">
+        <input type="button" value="로그인">        
+    </div>
+</body>
+</html>

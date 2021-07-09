@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입력창 디자인</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        /*
+            입력창 스타일(input, select, textarea)
+            
+            공용 스타일 : .input
+            확장 스타일 : 
+            - 밑줄만 쳐지는 입력창 : .input-underline
+            - 100%가 아닌 입력창 : .input-inline
+            - 하이라이트 입력창 : .input-highlight
+            - 좌측에 그림이 들어가는 입력창 : .input-hint
+        */
+        
+        .input {
+            width:100%;
+            padding:0.5rem;
+            outline:none;
+            border:0.5px solid grey;
+        }
+        
+        .input.input-underline {
+            border:none;
+            border-bottom: 0.5px solid grey;
+        }
+        
+        .input.input-inline {
+            width:auto;
+        }
+        /* :focus는 선택한 경우에 대한 스타일 적용 가능 */
+        .input.input-highlight:focus {
+            border-color:red;
+        }
+        
+        .input.input-hint {
+            padding-left: 2.5rem;
+        }
+        
+        /* 모든 textarea의 크기변경을 수직으로만 변경 설정 */
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <input class="input input-hint" type="text" placeholder="테스트">
+    <hr>
+    <select class="input">
+        <option>자바</option>
+        <option>파이썬</option>
+        <option>HTML</option>
+    </select>
+    <hr>
+    <textarea class="input input-highlight"></textarea>
+</body>
+</html>

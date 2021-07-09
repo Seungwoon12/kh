@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>드롭다운 메뉴</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        .outer {
+            padding: 0.5rem;
+            padding-left: 1rem;
+            margin: 0;
+            border: 1px solid black;
+        }
+
+        .outer>li {
+            position: relative;
+        }
+
+        .outer li {
+            list-style: none;
+        }
+
+        .outer>li>label {
+            cursor: pointer;
+        }
+
+        .outer>li>label:hover {
+            border-bottom: 1px solid black;
+        }
+
+        .outer ul {
+            padding: 0;
+            margin: 0;
+            display: none;
+            position: absolute;
+            background-color: black;
+            color: blanchedalmond;
+            width: 130px;
+        }
+
+        .outer ul>li {
+            padding: 15px;
+        }
+
+        .outer ul>li:hover {
+            cursor: pointer;
+        }
+
+        #menu {
+            display: none;
+        }
+
+        #menu:checked~ul {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="outer">
+        <li>
+            <input id="menu" type="checkbox">
+            <label for="menu">BEST</label>
+            <ul>
+                <li>OUTER</li>
+                <li>TOP</li>
+                <li>BOTTOM</li>
+            </ul>
+        </li>
+    </ul>
+</body></html>

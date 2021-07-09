@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>앞으로 사용할 레이아웃</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        div {
+            border:1px solid black;
+        }
+        
+        /*
+            메인 영역 : 폭 1000px 고정
+        */
+        .main {
+            width:1000px;
+            margin:auto;
+        }
+        
+        /* 전체 영역 안쪽 여백 1rem */
+        .header, .nav, .aside, .section, .footer {
+            padding: 1rem;
+        }
+        
+        /* 사이드와 본문은 2단 배치 */
+        .article::after {
+            content:"";
+            display: block;
+            clear:both;
+        }
+        
+        .aside {
+            float:left;
+            width:15%;
+            min-height:400px;
+        }
+        .section {
+            float:left;
+            width:85%;
+            min-height:400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header">헤더</div>
+        <div class="nav">메뉴</div>
+        <div class="article">
+            <div class="aside">사이드</div>
+            <div class="section">본문</div>
+        </div>
+        <div class="footer">푸터</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form 태그</title>
+</head>
+<body>
+
+    <!--
+        form 태그를 사용하면 입력창들을 묶어서 특정 주소로 전송시킬 수 있다.(전송도구)
+        단, 전송버튼은 반드시 input[type=submit]이라고 만들어야 한다.
+        
+        옵션
+        - action : 전송시킬 목적지
+        - method : 전송방식
+        
+        주의
+        - 보내는 데이터 입력창에는 데이터가 담길 이름(name)이 있어야 한다
+    -->    
+    <form action="https://genie.co.kr/search/searchMain">
+        
+        <input type="text" name="query">
+        
+        <input type="submit" value="전송">
+        
+    </form>
+    
+</body>
+</html>

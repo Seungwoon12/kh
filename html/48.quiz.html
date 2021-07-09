@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>전송폼 문제</title>
+</head>
+<body>
+    
+    <!--
+        method 는 데이터를 첨부하는 방식을 지정하는 속성
+        - GET : 주소 뒤에 ? 찍고 첨부(기본값)
+        - POST : 안보이는 영역에 첨부
+    -->
+    
+    <h1>네이버 검색창</h1>
+    <form action="https://search.naver.com/search.naver" method="get">
+        <input type="text" name="query">
+        <input type="submit">
+    </form>
+    
+    <h1>구글 검색창</h1>
+    <form action="https://www.google.com/search">
+        <input type="text" name="q">
+        <input type="submit">
+    </form>
+    
+</body>
+</html>

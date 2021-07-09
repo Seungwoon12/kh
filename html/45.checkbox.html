@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>체크박스 응용</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        #ck {
+            display:none;
+        }
+        #ck + .test {
+            color:red;
+        }
+        #ck:checked + .test {
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        체크박스의 토글기능은 필요하지만 모양은 필요하지 않다
+        = 라벨이 체크박스 타겟팅이 되니까 같이 만들고 체크박스를 숨김
+    -->
+    
+    <label for="ck">눌러보세요</label>
+    <input type="checkbox" id="ck">
+    <div class="test">
+        Hello Checkbox!
+    </div>  
+    
+</body>
+</html>

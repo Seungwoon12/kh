@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>셀 병합</title>
+</head>
+<body>
+    
+    <div align="center">
+        
+        <h1>셀 병합(merge cell)</h1>
+        
+        <p>
+            HTML에서는 셀을 합치는 개념이 아니라 늘리는 개념입니다
+        </p>
+        
+        <!--
+            rowspan : 줄 늘리기
+            colspan : 칸 늘리기
+        -->
+        
+        <table border="1" width="400">
+            <tbody>
+                <tr>
+                    <th colspan="2">1</th>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <th rowspan="3">4</th>
+                    <th>5</th>
+                    <th>6</th>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <th>9</th>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <th>12</th>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pagination</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <style>
+        /*
+            페이지 네비게이션 스타일
+        */
+        .pagination {
+            margin:0;
+            padding:0;
+/*            list-style: none;*/
+        }
+        .pagination > li {
+            display:inline-block;
+            padding:0.5rem;
+            min-width:2.5rem;
+            text-align: center;
+            /*border:1px solid transparent;*/
+        }
+        .pagination > li.active,
+        .pagination > li:hover {
+            /*border:1px solid gray;*/
+            cursor: pointer;
+            box-shadow: 0px 0px 2px 2px gray;
+        }
+        .pagination > li > a {
+           text-decoration: none;
+            color: black;
+        }
+        .pagination > li:hover > a {
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="center">자유 게시판</h1>
+    <ul class="pagination center">
+        <li><a href="#">&lt;</a></li>
+        <li><a href="#">11</a></li>
+        <li><a href="#">12</a></li>
+        <li class="active"><a href="#">13</a></li>
+        <li><a href="#">14</a></li>
+        <li><a href="#">15</a></li>
+        <li><a href="#">16</a></li>
+        <li><a href="#">17</a></li>
+        <li><a href="#">18</a></li>
+        <li><a href="#">19</a></li>
+        <li><a href="#">20</a></li>
+        <li><a href="#">&gt;</a></li>
+    </ul>
+</body>
+</html>
